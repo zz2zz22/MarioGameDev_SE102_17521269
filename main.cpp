@@ -125,8 +125,7 @@ void InitDirectX(HWND hWnd)
 	//
 	// Uncomment the following section to query graphic cards on the computer
 	//  
-
-	/*
+	
 	IDXGIFactory* pFactory = NULL;
 	#pragma comment(lib, "dxgi")
 	hr = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&pFactory);
@@ -148,7 +147,7 @@ void InitDirectX(HWND hWnd)
 		pAdapter->GetDesc(&adapterDesc);
 		DebugOut((wchar_t*)L"[INFO] Adapter %d: %s\n",i, adapterDesc.Description);
 	}
-	*/
+	
 
 	// Create the D3D device and the swap chain
 	hr = D3D10CreateDeviceAndSwapChain(NULL,
@@ -328,14 +327,14 @@ void Update(DWORD dt)
 		brick_vx = -brick_vx;
 
 		//	//Why not having these logics would make the brick disappear sometimes?  
-		////	if (brick_x < 0)
-		////	{
-		////		brick_x = 0;
-		////	}
-		////	else if (brick_x > right_edge )
-		////	{
-		////		brick_x = right_edge;
-		////	}
+			if (brick_x < 0)
+			{
+				brick_x = 0;
+			}
+			else if (brick_x > right_edge )
+			{
+				brick_x = right_edge;
+			}
 	}
 }
 
