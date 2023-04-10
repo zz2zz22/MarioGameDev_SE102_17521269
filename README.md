@@ -12,8 +12,6 @@
 - World 1-1 & World map
 
 ### 1️⃣ How to run ###
-```shell
-1> Make sure to choose x64 (64-bit) platform.
-2> Add d3d10.lib, dxguid.lib,dinput8.lib into list of linked libraries !
-3> Run `Install-Package Microsoft.DXSDK.D3DX` with NuGet Package Manager Console.
-```
+- Make sure to choose x64 (64-bit) platform.
+- Add ```d3d10.lib, dxguid.lib,dinput8.lib``` into list of linked libraries!
+- Run ```Install-Package Microsoft.DXSDK.D3DX``` with NuGet Package Manager Console.
