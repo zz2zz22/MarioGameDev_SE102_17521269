@@ -13,13 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Ini">
+      <UniqueIdentifier>{95a8c8f8-e77d-41c0-912d-2c25ee7b0600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Ini">
+      <UniqueIdentifier>{f6869db0-e9c1-498d-9304-70f2311930ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="..\sample01\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\sample01\Game.cpp">
+      <Filter>Source Files\Ini</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sample01\GameObject.cpp">
+      <Filter>Source Files\Ini</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sample01\debug.cpp">
+      <Filter>Source Files\Ini</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\sample01\debug.h">
+      <Filter>Header Files\Ini</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sample01\Game.h">
+      <Filter>Header Files\Ini</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sample01\GameObject.h">
+      <Filter>Header Files\Ini</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sample01\Texture.h">
+      <Filter>Header Files\Ini</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

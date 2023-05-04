@@ -131,7 +131,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\sample01\debug.cpp" />
+    <ClCompile Include="..\sample01\Game.cpp" />
+    <ClCompile Include="..\sample01\GameObject.cpp" />
+    <ClCompile Include="..\sample01\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\sample01\debug.h" />
+    <ClInclude Include="..\sample01\Game.h" />
+    <ClInclude Include="..\sample01\GameObject.h" />
+    <ClInclude Include="..\sample01\Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
