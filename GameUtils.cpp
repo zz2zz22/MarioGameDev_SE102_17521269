@@ -7,6 +7,7 @@ namespace GameUtils {
 
 	void GetFontRect(LPCSTR text, RECT* rect) {
 		//Dùng DT_CALCRECT để tính toán kích thước text trước khi vẽ lên canvas
+		//https://stackoverflow.com/questions/7719025/calculating-size-of-text-before-drawing-to-a-canvas
 		font->DrawTextA(
 			spriteHandler,
 			text,
