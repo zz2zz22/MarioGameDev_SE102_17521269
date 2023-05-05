@@ -131,7 +131,29 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\02-Sprite\Animation.cpp" />
+    <ClCompile Include="..\02-Sprite\Animations.cpp" />
+    <ClCompile Include="..\02-Sprite\debug.cpp" />
+    <ClCompile Include="..\02-Sprite\Game.cpp" />
+    <ClCompile Include="..\02-Sprite\GameObject.cpp" />
+    <ClCompile Include="..\02-Sprite\main.cpp" />
+    <ClCompile Include="..\02-Sprite\Mario.cpp" />
+    <ClCompile Include="..\02-Sprite\Sprite.cpp" />
+    <ClCompile Include="..\02-Sprite\Sprites.cpp" />
+    <ClCompile Include="..\02-Sprite\Textures.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\02-Sprite\Animation.h" />
+    <ClInclude Include="..\02-Sprite\AnimationFrame.h" />
+    <ClInclude Include="..\02-Sprite\Animations.h" />
+    <ClInclude Include="..\02-Sprite\debug.h" />
+    <ClInclude Include="..\02-Sprite\Game.h" />
+    <ClInclude Include="..\02-Sprite\GameObject.h" />
+    <ClInclude Include="..\02-Sprite\Mario.h" />
+    <ClInclude Include="..\02-Sprite\Sprite.h" />
+    <ClInclude Include="..\02-Sprite\Sprites.h" />
+    <ClInclude Include="..\02-Sprite\Texture.h" />
+    <ClInclude Include="..\02-Sprite\Textures.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
