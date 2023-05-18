@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "Entity.h"
 
 GameObject::GameObject() {
 	_isActive = true;
@@ -119,11 +120,11 @@ D3DXVECTOR2 GameObject::GetScale() const {
 }
 
 void GameObject::SweptAABB(
-	RECTF movingObject,
-	RECTF staticObject,
-	D3DXVECTOR2 distance,
-	D3DXVECTOR2& normal,
-	float& time)
+	RECTF movingObject, 
+	RECTF staticObject, 
+	D3DXVECTOR2 distance, 
+	D3DXVECTOR2& normal, 
+	float& time) 
 {
 	D3DXVECTOR2 dEntry;
 	D3DXVECTOR2 dExit;
@@ -220,11 +221,11 @@ void GameObject::SweptAABB(
 }
 
 void GameObject::FilterCollision(
-	const std::vector<LPCOLLISIONEVENT>& collisionEvents,
-	std::vector<LPCOLLISIONEVENT>& eventsResult,
-	D3DXVECTOR2& minTime,
-	D3DXVECTOR2& normal,
-	D3DXVECTOR2& relativeDistance)
+	const std::vector<LPCOLLISIONEVENT>& collisionEvents, 
+	std::vector<LPCOLLISIONEVENT>& eventsResult, 
+	D3DXVECTOR2& minTime, 
+	D3DXVECTOR2& normal, 
+	D3DXVECTOR2& relativeDistance) 
 {
 	minTime = D3DXVECTOR2(1.0f, 1.0f);
 	normal = D3DXVECTOR2(0.0f, 0.0f);
@@ -233,6 +234,10 @@ void GameObject::FilterCollision(
 
 	for (unsigned int i = 0; i < collisionEvents.size(); ++i) {
 		LPCOLLISIONEVENT coEvent = collisionEvents.at(i);
+
+		if (coEvent->entity->isPassThroughable) {
+			continue;
+		}
 
 		if (coEvent->time < minTime.x && coEvent->normal.x != 0) {
 			minTime.x = coEvent->time;
@@ -259,6 +264,9 @@ void GameObject::FilterCollision(
 
 	for (unsigned int i = 0; i < collisionEvents.size(); ++i) {
 		LPCOLLISIONEVENT coEvent = collisionEvents.at(i);
+		if (coEvent->entity->isPassThroughable) {
+			eventsResult.emplace_back(coEvent);
+		}
 	}
 }
 
