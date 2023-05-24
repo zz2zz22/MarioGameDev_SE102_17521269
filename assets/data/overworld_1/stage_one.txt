@@ -1,0 +1,13 @@
+#ID for the theme
+[MAINTHEMES]
+2	3
+[/]
+
+[SCENESIZE]
+2816	656
+[/]
+
+#In seconds
+[SCENETIME]
+300
+[/]
