@@ -6,6 +6,8 @@
 #include "Entity.h"
 #include "Tile.h"
 
+#include "Player.h"
+
 #include <vector>
 #include <string>
 #include <fstream>
@@ -65,6 +67,8 @@ protected:
 
 	Camera* _cameraInstance;
 	Background* _background;
+
+	Player* _player;
 	
 	Grid* _grid;
 

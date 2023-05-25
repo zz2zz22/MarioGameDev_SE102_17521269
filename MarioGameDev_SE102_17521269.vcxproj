@@ -152,6 +152,7 @@
     <ClInclude Include="RunState.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ScenePlay.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Tile.h" />
   </ItemGroup>
@@ -177,6 +178,7 @@
     <ClCompile Include="RunState.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ScenePlay.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Tile.cpp" />
   </ItemGroup>

@@ -199,14 +199,23 @@ void Scene::_ParseEntityData(std::string line) {
 	Texture* texture = GetTexture(textureID);
 
 	Entity* entity = nullptr;
-	//Set datafor object
-	
-	if (entity != nullptr) {
-		entity->SetOjectType(objectType);
-		entity->ParseData(tokens.at(1), texture, extraData);
-		entity->SetPosition(position);
+	switch (objectType) {
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_MARIO:
+		_player = new Player;
+		_player->SetOjectType(objectType);
+		_player->ParseData(tokens.at(1), texture, extraData);
+		_player->SetPosition(position);
 
-		_entities.emplace_back(entity);
+		_entities.emplace_back(_player);
+		break;
+
+		if (entity != nullptr) {
+			entity->SetOjectType(objectType);
+			entity->ParseData(tokens.at(1), texture, extraData);
+			entity->SetPosition(position);
+
+			_entities.emplace_back(entity);
+		}
 	}
 }
 
@@ -362,7 +371,8 @@ Entity* Scene::CreateEntityFromData(std::string objectID, std::string dataPath, 
 	GameObject::GameObjectType objectType = static_cast<GameObject::GameObjectType>(std::stoul(objectID));
 	unsigned int texID = std::stoul(textureID);
 	Texture* texture = GetTexture(texID);
-
+	//Object add area
+	
 	entity->SetOjectType(objectType);
 	entity->ParseData(dataPath, texture);
 	return entity;
@@ -386,9 +396,12 @@ void Scene::LoadScene() {
 	_entities.reserve(MAX_ENTITIES_PER_SCENE);
 	_tiles.reserve(MAX_ENTITIES_PER_SCENE);
 
+	_player = nullptr;
+
 	_background = nullptr;
 	_grid = nullptr;
 	_cameraInstance = Camera::GetInstance();
+	//
 
 	_SceneFileSection sceneFileSection = _SceneFileSection::SCENEFILE_SECTION_UNKNOWN;
 
