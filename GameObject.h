@@ -44,7 +44,11 @@ class GameObject {
 public:
 	enum class GameObjectType {
 		//Players
-		GAMEOBJECT_TYPE_MARIO = 0
+		GAMEOBJECT_TYPE_MARIO = 0,
+		//Projectiles
+		GAMEOBJECT_TYPE_PLAYERFIREBALL = 1,
+		//Special objects
+		GAMEOBJECT_TYPE_TILE = 111
 	};
 
 protected:

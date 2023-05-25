@@ -1,0 +1,36 @@
+[SPRITES]
+#SMALL
+Idle	0	0	16	16	1	0
+
+Run	0	0	16	16	2	100
+Run	18	0	34	16
+
+Jump	36	0	52	16	1	0
+
+SuperRun	54	0	70	16	2	25
+SuperRun	72	0	88	16
+
+SuperJump	90	0	106	16	1	0
+
+Skid	108	0	124	16	1	0
+
+Front	126	0	142	16	1	0
+
+HoldIdle	144	0	160	16	1	0
+
+HoldRun	144	0	160	16	2	100
+HoldRun	162	0	178	16
+
+HoldJump	162	0	178	16	1	0
+
+Kick	180	0	196	16	1	0
+
+Slide	198	0	214	16	1	0
+
+Die	216	0	232	16	1	0
+[/]
+
+[HITBOXES]
+-7	-7	14	14
+-7	-15	14	30
+[/]

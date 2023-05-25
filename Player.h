@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Entity.h"
+#include "PlayerState.h"
 
 #include <fstream>
 
@@ -39,6 +40,15 @@ private:
 	unsigned int _lives;
 	unsigned int _coins;
 	unsigned int _score;
+
+	//How many fireballs the player can throw in a given time
+	//Default is 2
+	unsigned int _fireballsCount;
+	unsigned int _nextSceneID;
+	unsigned int _sceneRemainingTime;
+
+	//Determines whether the player goes up or down in the pipe
+	float _upVector;
 
 	bool _triggeredStageEnd;
 	bool _hasBossItem;

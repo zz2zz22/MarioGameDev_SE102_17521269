@@ -18,12 +18,7 @@ class PropPlayer;
 class Scene {
 public:
 	enum class SceneType {
-		SCENE_TYPE_SECRET = 1,
-		SCENE_TYPE_MAP = 10,
-		SCENE_TYPE_STAGE_ONE = 11,
-		SCENE_TYPE_STAGE_FOUR = 14,
-		SCENE_TYPE_STAGE_FORTRESS = 18,
-		SCENE_TYPE_STAGE_DEBUG = 999
+		SCENE_TYPE_STAGE_ONE = 0
 	};
 
 protected:

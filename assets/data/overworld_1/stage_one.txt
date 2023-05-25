@@ -11,3 +11,92 @@
 [SCENETIME]
 300
 [/]
+
+#Float (Specify the value to lock the camera in place when posy > sceneHeight * value)
+[CAMERALOCKVALUE]
+0.3
+[/]
+
+#Left	top	right	bottom	up_vector
+[CAMERABOUNDS]
+0	-8	2808	465	1
+1968	456	2479	689	1
+[/]
+
+[BGCOLOR]
+156	252	240
+[/]
+
+
+[TEXTURES]
+0	assets\textures\tileset.png
+1	assets\textures\map.png
+2	assets\textures\player.png
+3	assets\textures\hud.png
+4	assets\textures\enemies.png
+5	assets\textures\items.png
+6	assets\textures\particles.png
+7	assets\textures\projectiles.png
+8	assets\textures\masks.png
+[/]
+
+#OBJ_ID	FILE_PATH			texID	X	Y	EXTRA_DATA
+[ENTITYDATA]
+#Player											OBJ_ID	FILE_PATH	texID
+0	assets\data\player\mario.txt	2	25	384	1	assets\data\projectile\fireball.txt	7
+[/]
+
+[TILEDATA]
+#Floor tile 624x16
+111	0	416	624	16
+[/]
+
+[GRID]
+assets\data\overworld_1\grid\grid_stage_one.txt
+[/]
+
+[BACKGROUND]
+#texID
+0
+#Left	top	right	bottom	X	Y
+#Floor tile 624x16
+0	34	16	50	0	416
+17	34	33	50	16	416
+17	34	33	50	32	416
+17	34	33	50	48	416
+17	34	33	50	64	416
+17	34	33	50	80	416
+17	34	33	50	96	416
+17	34	33	50	112	416
+17	34	33	50	128	416
+17	34	33	50	144	416
+17	34	33	50	160	416
+17	34	33	50	176	416
+17	34	33	50	192	416
+17	34	33	50	208	416
+17	34	33	50	224	416
+17	34	33	50	240	416
+17	34	33	50	256	416
+17	34	33	50	272	416
+17	34	33	50	288	416
+17	34	33	50	304	416
+17	34	33	50	320	416
+17	34	33	50	336	416
+17	34	33	50	352	416
+17	34	33	50	368	416
+17	34	33	50	384	416
+17	34	33	50	400	416
+17	34	33	50	416	416
+17	34	33	50	432	416
+17	34	33	50	448	416
+17	34	33	50	464	416
+17	34	33	50	480	416
+17	34	33	50	496	416
+17	34	33	50	512	416
+17	34	33	50	528	416
+17	34	33	50	544	416
+17	34	33	50	560	416
+17	34	33	50	576	416
+17	34	33	50	592	416
+34	34	50	50	608	416
+[/]

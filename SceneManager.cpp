@@ -10,10 +10,7 @@ SceneManager::~SceneManager() {}
 
 Scene* SceneManager::_CreateScene(unsigned int sceneID, std::string scenePath) {
 	Scene::SceneType sceneType = static_cast<Scene::SceneType>(sceneID);
-	switch (sceneType) {
-	default:
-		return new ScenePlay(sceneType, scenePath);
-	}
+	return new ScenePlay(sceneType, scenePath);
 }
 
 SceneManager* SceneManager::GetInstance() {
