@@ -2,9 +2,11 @@
 
 #include "Entity.h"
 #include "PlayerState.h"
+#include "Tail.h"
 
 #include <fstream>
 
+class Fireball;
 class PlayerState;
 class Player : public Entity {
 private:
@@ -17,6 +19,8 @@ private:
 	friend class CrouchState;
 	friend class ThrowState;
 	friend class WagState;
+	friend class HUD;
+	friend class ScorePopUp;
 
 	static Texture* _playerTexture;
 	static std::vector<GameObjectType> _bonusItems;
@@ -139,6 +143,8 @@ public:
 	void RunFly();
 	//Raccoon
 	void SlowFall();
+
+	Fireball* SpawnFireball();
 
 	void HandleCollisionResult(LPCOLLISIONEVENT, D3DXVECTOR2&, D3DXVECTOR2&, D3DXVECTOR2&, D3DXVECTOR2&) override;
 	void HandleOverlap(Entity*) override;

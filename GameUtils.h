@@ -12,17 +12,13 @@
 #include <Windows.h>
 
 namespace GameUtils {
-	const unsigned int SCREEN_WIDTH = 320;
-	const unsigned int SCREEN_HEIGHT = 240;
-
-	//Thường dùng trong các entity class
+	const unsigned int SCREEN_WIDTH = 256;
+	const unsigned int SCREEN_HEIGHT = 224;
+	//Used in all entity classes
 	const unsigned int MAX_FILE_LINE = 5000;
 
-	//Chủ yếu dùng trong Game và Sprite class
 	extern ID3D10Device* directDevice;
 	extern ID3DX10Sprite* spriteHandler;
-
-	//Để debugging
 	extern ID3DX10Font* font;
 
 	extern void GetFontRect(LPCSTR, RECT*);
@@ -34,9 +30,7 @@ namespace GameUtils {
 
 	extern LPCWSTR ToLPCWSTR(std::string);
 
-	//
 	//https://stackoverflow.com/questions/26570721/how-to-know-if-wstring-can-be-safely-no-data-loss-converted-to-string
-	//
 	extern std::string ToStr(std::wstring&);
 }
 
@@ -47,7 +41,8 @@ typedef struct RectFloat {
 	RectFloat(float l, float t, float r, float b) : left(l), top(t), right(r), bottom(b) {}
 } RECTF;
 
-//A structure that contains a loaded texture and a shader resource view that is bound to it
+//A structure that contains a loaded texture,
+//and a shader resource view that is bound to it
 struct Texture {
 	unsigned int width = 0;
 	unsigned int height = 0;

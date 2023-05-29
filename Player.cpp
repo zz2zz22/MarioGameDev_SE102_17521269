@@ -333,7 +333,22 @@ void Player::OnKeyDownGame(int keyCode) {
 		break;
 	case DIK_S:
 		_isHolding = true;
-		//attack
+		//Fireball attack
+		if (_health == 3 && !_isCrouching) {
+			if (_fireballsCount < _FIREBALLS_LIMIT) {
+				SceneManager::GetInstance()->GetCurrentScene()->AddEntityToScene(SpawnFireball());
+				++_fireballsCount;
+
+				if (_fireballsCount == _FIREBALLS_LIMIT) {
+					StartFireballCoolDownTimer();
+				}
+			}
+		}
+
+		//Tail attack
+		if (_health == 4 && !IsAttacking()) {
+			StartAttackTimer();
+		}
 		break;
 	case DIK_SPACE:
 		SlowFall();
@@ -408,6 +423,20 @@ void Player::SlowFall() {
 		const float SLOW_MODIFIER = 0.2f;
 		_velocity.y *= SLOW_MODIFIER;
 	}
+}
+
+Fireball* Player::SpawnFireball() {
+	Fireball* fireball = dynamic_cast<Fireball*>(
+		SceneManager::GetInstance()->GetCurrentScene()->CreateEntityFromData(
+			_extraData.at(0),
+			_extraData.at(1),
+			_extraData.at(2)
+		)
+		);
+	const float OFFSET = 10.0f;
+	fireball->SetNormal({ _normal.x, fireball->GetNormal().y });
+	fireball->SetPosition({ _position.x, _position.y + OFFSET });
+	return fireball;
 }
 
 void Player::HandleCollisionResult(
