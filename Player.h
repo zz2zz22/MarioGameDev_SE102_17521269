@@ -1,9 +1,12 @@
 #pragma once
 
 #include "Entity.h"
+#include "PlayerState.h"
+#include "Tail.h"
 
 #include <fstream>
 
+class Fireball;
 class PlayerState;
 class Player : public Entity {
 private:
@@ -16,6 +19,8 @@ private:
 	friend class CrouchState;
 	friend class ThrowState;
 	friend class WagState;
+	friend class HUD;
+	friend class ScorePopUp;
 
 	static Texture* _playerTexture;
 	static std::vector<GameObjectType> _bonusItems;
@@ -39,6 +44,15 @@ private:
 	unsigned int _lives;
 	unsigned int _coins;
 	unsigned int _score;
+
+	//How many fireballs the player can throw in a given time
+	//Default is 2
+	unsigned int _fireballsCount;
+	unsigned int _nextSceneID;
+	unsigned int _sceneRemainingTime;
+
+	//Determines whether the player goes up or down in the pipe
+	float _upVector;
 
 	bool _triggeredStageEnd;
 	bool _hasBossItem;
@@ -129,6 +143,8 @@ public:
 	void RunFly();
 	//Raccoon
 	void SlowFall();
+
+	Fireball* SpawnFireball();
 
 	void HandleCollisionResult(LPCOLLISIONEVENT, D3DXVECTOR2&, D3DXVECTOR2&, D3DXVECTOR2&, D3DXVECTOR2&) override;
 	void HandleOverlap(Entity*) override;

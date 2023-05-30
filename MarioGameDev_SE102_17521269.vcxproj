@@ -80,6 +80,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d10.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -131,15 +132,64 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimatedSprite.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CrouchState.h" />
+    <ClInclude Include="Device.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityList.h" />
+    <ClInclude Include="FallState.h" />
+    <ClInclude Include="Fireball.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameUtils.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="Hitbox.h" />
+    <ClInclude Include="IdleState.h" />
+    <ClInclude Include="JumpState.h" />
+    <ClInclude Include="Pipeline.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerState.h" />
+    <ClInclude Include="RunState.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ScenePlay.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Tail.h" />
+    <ClInclude Include="ThrowState.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="WagState.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnimatedSprite.cpp" />
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CrouchState.cpp" />
+    <ClCompile Include="Device.cpp" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="FallState.cpp" />
+    <ClCompile Include="Fireball.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameUtils.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Hitbox.cpp" />
+    <ClCompile Include="IdleState.cpp" />
+    <ClCompile Include="JumpState.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pipeline.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerState.cpp" />
+    <ClCompile Include="RunState.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ScenePlay.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Tail.cpp" />
+    <ClCompile Include="ThrowState.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="WagState.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

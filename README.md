@@ -1,15 +1,15 @@
 <p align="center">
-  <h1 align="center">SCHOOL PROJECT - SUPER MARIO GAME DEVELOPE</h1>
+  <h1 align="center">SCHOOL PROJECT - SUPER MARIO GAME DEVELOP</h1>
 </p>
 
-🎓 A solo school project on how to create a platform game.
+🎓 A solo school project on how to create a 2D platformer game.
 
 `game-development` `C++` `school-project` `DirectX 10` `OOP`
 
 ---
 
 ## 🏃 Requirment ##
-- World 1-1 & World map
+- World 1-1 & World map & Static Intro Scene
 
 ### 1️⃣ How to run ###
 - Make sure to choose x86 platform.

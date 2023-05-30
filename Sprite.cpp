@@ -1,4 +1,5 @@
 #include "GameUtils.h"
+#include "Game.h"
 #include "Sprite.h"
 
 void Sprite::_ScaleSprite(const RECT& spriteBound, D3DXVECTOR2 scale, unsigned int alpha) {
@@ -53,7 +54,7 @@ void Sprite::DrawSprite(D3DXVECTOR2 position, D3DXVECTOR2 scale, unsigned int al
 	}
 
 	float x = position.x - _cameraInstance->GetPosition().x;
-	float y = position.y - _cameraInstance->GetPosition().y; //Need to get backbuffer y
+	float y = (Game::GetInstance()->GetBackBufferHeight() - position.y) + _cameraInstance->GetPosition().y;
 	D3DXVECTOR2 spritePosition = { floor(x), floor(y) };
 
 	_ScaleSprite(_bounds.at(_currentFrame), scale, alpha);

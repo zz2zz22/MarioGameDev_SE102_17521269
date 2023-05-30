@@ -1,0 +1,7 @@
+[SETTINGS]
+default	0
+[/]
+
+[SCENES]
+0	assets\data\overworld_1\stage_one.txt
+[/]

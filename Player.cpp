@@ -1,6 +1,7 @@
 #include "Device.h"
 #include "SceneManager.h"
 #include "Player.h"
+#include "IdleState.h"
 #include "EntityList.h"
 
 Texture* Player::_playerTexture = nullptr;
@@ -31,10 +32,45 @@ void Player::_HanldeStageEnd() {
 		}
 
 		_isHolding = false;
+
+		if (_sceneRemainingTime > 0) {
+			for (unsigned int i = 0; i < _sceneRemainingTime; ++i) {
+				_score += 50;
+			}
+			_sceneRemainingTime = 0;
+		}
+
 	}
 }
 
-void Player::_HandleBonusItems() {	}
+void Player::_HandleBonusItems() {
+	if (_bonusItems.empty()) {
+		return;
+	}
+
+	unsigned int shroomCards = 0;
+	unsigned int flowerCards = 0;
+	unsigned int starCards = 0;
+
+
+	const unsigned int MAX_ITEMS = 3;
+	if (_bonusItems.size() == MAX_ITEMS) {
+		if (shroomCards == MAX_ITEMS) {
+			_lives += 2;
+		}
+		else if (flowerCards == MAX_ITEMS) {
+			_lives += 3;
+		}
+		else if (starCards == MAX_ITEMS) {
+			_lives += 5;
+		}
+		else {
+			_lives += 1;
+		}
+
+		_bonusItems.clear();
+	}
+}
 
 void Player::_HandleMovementMap() {
 	if (abs(_position.x - _lastPos.x) >= _MAX_TRAVEL_DISTANCE || abs(_position.y - _lastPos.y) >= _MAX_TRAVEL_DISTANCE) {
@@ -136,6 +172,10 @@ Player::Player() {
 	_coins = 0;
 	_score = 0;
 
+	_fireballsCount = 0;
+
+	_upVector = 1.0f;
+
 	_heldEntity = nullptr;
 
 	_flyTime = 6000;
@@ -144,12 +184,16 @@ Player::Player() {
 	_fireballCoolDownTime = 2500;
 	_invulnerableTime = 1000;
 
+	_playerState = new IdleState(this);
+
 	_bonusItems.reserve(3);
 }
 
 Player::~Player() {}
 
-unsigned int Player::GetNextSceneID() const {}
+unsigned int Player::GetNextSceneID() const {
+	return _nextSceneID;
+}
 
 RECTF Player::GetBoundingBox(int index) const {
 	return GameObject::GetBoundingBox(_health >= 2 && !isInMap && !_isCrouching);
@@ -159,12 +203,16 @@ Entity* Player::GetHeldEntity() const {
 	return _heldEntity;
 }
 
-void Player::GetSceneRemainingTime(unsigned int sceneTime) {}
+void Player::GetSceneRemainingTime(unsigned int sceneTime) {
+	_sceneRemainingTime = sceneTime;
+}
 
 void Player::SetUpVector(float upVector) {
 	if (upVector == 0.0f) {
 		return;
 	}
+
+	_upVector = upVector;
 }
 
 bool Player::TriggeredStageEnd() const {
@@ -221,6 +269,12 @@ void Player::HandleStates() {
 	}
 	else {
 		_HandleMovementGame();
+	}
+
+	PlayerState* currentState = _playerState->HandleStates();
+	if (currentState != nullptr) {
+		delete _playerState;
+		_playerState = currentState;
 	}
 }
 
@@ -279,7 +333,22 @@ void Player::OnKeyDownGame(int keyCode) {
 		break;
 	case DIK_S:
 		_isHolding = true;
-		//Attacks
+		//Fireball attack
+		if (_health == 3 && !_isCrouching) {
+			if (_fireballsCount < _FIREBALLS_LIMIT) {
+				SceneManager::GetInstance()->GetCurrentScene()->AddEntityToScene(SpawnFireball());
+				++_fireballsCount;
+
+				if (_fireballsCount == _FIREBALLS_LIMIT) {
+					StartFireballCoolDownTimer();
+				}
+			}
+		}
+
+		//Tail attack
+		if (_health == 4 && !IsAttacking()) {
+			StartAttackTimer();
+		}
 		break;
 	case DIK_SPACE:
 		SlowFall();
@@ -311,7 +380,6 @@ void Player::TakeDamage() {
 		}
 		else {
 			--_health;
-
 			if (_health < 1) {
 				--_lives;
 			}
@@ -357,6 +425,20 @@ void Player::SlowFall() {
 	}
 }
 
+Fireball* Player::SpawnFireball() {
+	Fireball* fireball = dynamic_cast<Fireball*>(
+		SceneManager::GetInstance()->GetCurrentScene()->CreateEntityFromData(
+			_extraData.at(0),
+			_extraData.at(1),
+			_extraData.at(2)
+		)
+		);
+	const float OFFSET = 10.0f;
+	fireball->SetNormal({ _normal.x, fireball->GetNormal().y });
+	fireball->SetPosition({ _position.x, _position.y + OFFSET });
+	return fireball;
+}
+
 void Player::HandleCollisionResult(
 	LPCOLLISIONEVENT result,
 	D3DXVECTOR2& minTime,
@@ -375,7 +457,17 @@ void Player::HandleCollisionResult(
 		return;
 	}
 
+	switch (eventEntity->GetObjectType()) {
+	case GameObjectType::GAMEOBJECT_TYPE_TILE:
+		if (eventNormal.y == -1.0f) {
+			_isOnGround = true;
+		}
+		break;
+	}
 }
+
+void Player::HandleOverlap(Entity* entity) {}
+
 void Player::Update(
 	DWORD deltaTime,
 	std::vector<Entity*>* collidableEntities,
@@ -401,14 +493,16 @@ void Player::Update(
 		_attackStart = 0;
 	}
 
+	if (IsOnFireballCoolDown() && GetTickCount64() - _fireballCoolDownStart > _fireballCoolDownTime) {
+		_fireballsCount = 0;
+		_fireballCoolDownStart = 0;
+	}
+
 	if (IsInvulnerable() && GetTickCount64() - _invulnerableStart > _invulnerableTime) {
 		_invulnerableStart = 0;
 
 		_velocity = _originalVel;
 	}
-	//----------------------------------------------------------------------------
-	//TIMERS
-	//----------------------------------------------------------------------------
 
 	//To show the whole kicking animation
 	if (_isNextToShell && GetTickCount64() % 500 == 0) {
@@ -434,6 +528,7 @@ void Player::Update(
 			_wentIntoPipe = !_wentIntoPipe;
 			_position = _destination;
 			_isOnGround = false;
+			_normal.y *= _upVector;
 		}
 	}
 
@@ -454,6 +549,7 @@ void Player::Update(
 		}
 	}
 
+	_playerState->Update(deltaTime);
 	Entity::Update(deltaTime, collidableEntities, collidableTiles, grid);
 
 	if (_heldEntity != nullptr) {
@@ -494,9 +590,16 @@ void Player::Update(
 	}
 }
 
-void Player::Render() {}
+void Player::Render() {
+	_playerState->Render();
+}
 
 void Player::Release() {
+	if (_playerState != nullptr) {
+		_playerState->Release();
+		delete _playerState;
+	}
+
 	_animatedSprite.Release();
 	_playerTexture = nullptr;
 }
