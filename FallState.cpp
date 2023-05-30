@@ -2,6 +2,7 @@
 #include "PlayerState.h"
 #include "IdleState.h"
 #include "FallState.h"
+#include "WagState.h"
 
 FallState::FallState(Player* player) : PlayerState(player) {}
 
@@ -9,6 +10,11 @@ PlayerState* FallState::HandleStates() {
 	if (_player->_isOnGround) {
 		return new IdleState(_player);
 	}
+	//Attack in Raccoon form when falling
+	else if (_player->IsAttacking()) {
+		return new WagState(_player);
+	}
+
 	return nullptr;
 }
 

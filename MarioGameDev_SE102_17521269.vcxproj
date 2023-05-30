@@ -148,6 +148,7 @@
     <ClInclude Include="Hitbox.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="JumpState.h" />
+    <ClInclude Include="MapState.h" />
     <ClInclude Include="Pipeline.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
@@ -178,6 +179,7 @@
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="JumpState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MapState.cpp" />
     <ClCompile Include="Pipeline.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />

@@ -5,6 +5,7 @@
 #include "JumpState.h"
 #include "FallState.h"
 #include "CrouchState.h"
+#include "WagState.h"
 
 RunState::RunState(Player* player) : PlayerState(player) {}
 
@@ -20,6 +21,9 @@ PlayerState* RunState::HandleStates() {
 	}
 	else if (_player->_isCrouching) {
 		return new CrouchState(_player);
+	}
+	else if (_player->IsAttacking()) {
+		return new WagState(_player);
 	}
 
 	return nullptr;
