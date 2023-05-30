@@ -157,7 +157,9 @@
     <ClInclude Include="ScenePlay.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Tail.h" />
+    <ClInclude Include="ThrowState.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="WagState.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedSprite.cpp" />
@@ -185,7 +187,9 @@
     <ClCompile Include="ScenePlay.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Tail.cpp" />
+    <ClCompile Include="ThrowState.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="WagState.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -147,6 +147,43 @@ RacHoldJump	52	116	76	148	1	0
 RacKick	78	116	102	148	1	0
 
 RacSlide	104	116	120	148	1	0
+
+#MAP
+MapSmall	122	124	138	148	1	0
+MapBig	140	124	156	148	1	0
+MapFire	158	124	174	148	1	0
+MapRac	176	124	192	148	1	0
+
+#TRANSFORMATION
+GrowUp	372	17	388	49	11	100
+GrowUp	390	17	406	49
+GrowUp	372	17	388	49
+GrowUp	390	17	406	49
+GrowUp	372	17	388	49
+GrowUp	390	17	406	49
+GrowUp	372	17	388	49
+GrowUp	0	17	16	49
+GrowUp	372	17	388	49
+GrowUp	0	17	16	49
+GrowUp	372	17	388	49
+
+ShrinkDown	372	17	388	49	11	100
+ShrinkDown	0	17	16	49
+ShrinkDown	372	17	388	49
+ShrinkDown	0	17	16	49
+ShrinkDown	372	17	388	49
+ShrinkDown	390	17	406	49
+ShrinkDown	372	17	388	49
+ShrinkDown	390	17	406	49
+ShrinkDown	372	17	388	49
+ShrinkDown	390	17	406	49
+ShrinkDown	372	17	388	49
+
+SmokePuff	234	0	250	16	4	100
+SmokePuff	252	0	268	16
+SmokePuff	270	0	286	16
+SmokePuff	288	0	304	16
+[/]
 [/]
 
 [HITBOXES]
