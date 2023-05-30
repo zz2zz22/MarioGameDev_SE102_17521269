@@ -135,6 +135,7 @@
     <ClInclude Include="AnimatedSprite.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Coin.h" />
     <ClInclude Include="CrouchState.h" />
     <ClInclude Include="Device.h" />
     <ClInclude Include="Entity.h" />
@@ -166,6 +167,7 @@
     <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Coin.cpp" />
     <ClCompile Include="CrouchState.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="Entity.cpp" />

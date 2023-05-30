@@ -105,6 +105,9 @@
     <ClInclude Include="MapState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Coin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameUtils.cpp">
@@ -192,6 +195,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MapState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Coin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
