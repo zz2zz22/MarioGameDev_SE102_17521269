@@ -77,5 +77,66 @@ void FallState::Render() {
 			_player->_animatedSprite.PlaySpriteAnimation("FireFall", _player->_position, _player->_scale, _alpha);
 		}
 		break;
+	case _Form::RACCOON:
+		if (_player->IsInPipe()) {
+			_player->_animatedSprite.PlaySpriteAnimation("RacFront", _player->_position);
+		}
+		else if (_player->_heldEntity == nullptr && !_player->IsFlying() && Device::IsKeyDown(DIK_SPACE)) {
+			_player->_animatedSprite.PlaySpriteAnimation("RacWagFall", {
+				_player->_position.x - RAC_OFFSET * _player->_normal.x,
+				_player->_position.y
+				},
+				_player->_scale,
+				_alpha
+			);
+		}
+		else if (_player->_heldEntity == nullptr && _player->IsFlying()) {
+			if (Device::IsKeyDown(DIK_SPACE)) {
+				_player->_animatedSprite.PlaySpriteAnimation("RacWagSuperFall", {
+					_player->_position.x - RAC_OFFSET * _player->_normal.x,
+					_player->_position.y
+					},
+					_player->_scale,
+					_alpha
+				);
+			}
+			else {
+				_player->_animatedSprite.PlaySpriteAnimation("RacSuperFall", {
+					_player->_position.x - RAC_OFFSET * _player->_normal.x,
+					_player->_position.y
+					},
+					_player->_scale,
+					_alpha
+				);
+			}
+		}
+		else if (_player->_isNextToShell) {
+			_player->_animatedSprite.PlaySpriteAnimation("RacKick", {
+				_player->_position.x - RAC_OFFSET * _player->_normal.x,
+				_player->_position.y
+				},
+				_player->_scale,
+				_alpha
+			);
+		}
+		else if (_player->_heldEntity != nullptr) {
+			_player->_animatedSprite.PlaySpriteAnimation("RacHoldJump", {
+				_player->_position.x - RAC_OFFSET * _player->_normal.x,
+				_player->_position.y
+				},
+				_player->_scale,
+				_alpha
+			);
+		}
+		else {
+			_player->_animatedSprite.PlaySpriteAnimation("RacFall", {
+				_player->_position.x - RAC_OFFSET * _player->_normal.x,
+				_player->_position.y
+				},
+				_player->_scale,
+				_alpha
+			);
+		}
+		break;
 	}
 }
