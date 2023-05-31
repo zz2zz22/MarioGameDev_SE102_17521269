@@ -60,5 +60,19 @@ void IdleState::Render() {
 			_player->_animatedSprite.PlaySpriteAnimation("Idle", _player->_position, _player->_scale, _alpha);
 		}
 		break;
+	case _Form::BIG:
+		if (_player->IsInPipe()) {
+			_player->_animatedSprite.PlaySpriteAnimation("BigFront", _player->_position);
+		}
+		else if (_player->_isNextToShell) {
+			_player->_animatedSprite.PlaySpriteAnimation("BigKick", _player->_position, _player->_scale, _alpha);
+		}
+		else if (_player->_heldEntity != nullptr) {
+			_player->_animatedSprite.PlaySpriteAnimation("BigHoldIdle", _player->_position, _player->_scale, _alpha);
+		}
+		else {
+			_player->_animatedSprite.PlaySpriteAnimation("BigIdle", _player->_position, _player->_scale, _alpha);
+		}
+		break;
 	}
 }

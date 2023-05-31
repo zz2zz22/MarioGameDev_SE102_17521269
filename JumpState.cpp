@@ -1,4 +1,4 @@
-#include "../../Device.h"
+#include "Device.h"
 #include "PlayerState.h"
 #include "JumpState.h"
 #include "FallState.h"
@@ -40,6 +40,23 @@ void JumpState::Render() {
 		}
 		else {
 			_player->_animatedSprite.PlaySpriteAnimation("Jump", _player->_position, _player->_scale, _alpha);
+		}
+		break;
+	case _Form::BIG:
+		if (_player->IsInPipe()) {
+			_player->_animatedSprite.PlaySpriteAnimation("BigFront", _player->_position);
+		}
+		else if (_player->_acceleration >= _player->_ACCEL_THRESHOLD && _player->_heldEntity == nullptr) {
+			_player->_animatedSprite.PlaySpriteAnimation("BigSuperJump", _player->_position, _player->_scale, _alpha);
+		}
+		else if (_player->_isNextToShell) {
+			_player->_animatedSprite.PlaySpriteAnimation("BigKick", _player->_position, _player->_scale, _alpha);
+		}
+		else if (_player->_heldEntity != nullptr) {
+			_player->_animatedSprite.PlaySpriteAnimation("BigHoldJump", _player->_position, _player->_scale, _alpha);
+		}
+		else {
+			_player->_animatedSprite.PlaySpriteAnimation("BigJump", _player->_position, _player->_scale, _alpha);
 		}
 		break;
 	}
