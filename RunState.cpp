@@ -81,5 +81,27 @@ void RunState::Render() {
 			}
 		}
 		break;
+	case _Form::FIRE:
+		if (_player->IsInPipe()) {
+			_player->_animatedSprite.PlaySpriteAnimation("FireFront", _player->_position);
+		}
+		else if (_player->_acceleration >= _player->_ACCEL_THRESHOLD && _player->_isOnGround && _player->_heldEntity == nullptr) {
+			_player->_animatedSprite.PlaySpriteAnimation("FireSuperRun", _player->_position, _player->_scale, _alpha);
+		}
+		else if (_player->_isNextToShell) {
+			_player->_animatedSprite.PlaySpriteAnimation("FireKick", _player->_position, _player->_scale, _alpha);
+		}
+		else if (_player->_heldEntity != nullptr) {
+			_player->_animatedSprite.PlaySpriteAnimation("FireHoldRun", _player->_position, _player->_scale, _alpha);
+		}
+		else {
+			if (_player->_acceleration < 0.5f && (Device::IsKeyDown(DIK_LEFTARROW) || Device::IsKeyDown(DIK_RIGHTARROW))) {
+				_player->_animatedSprite.PlaySpriteAnimation("FireSkid", _player->_position, _player->_scale, _alpha);
+			}
+			else {
+				_player->_animatedSprite.PlaySpriteAnimation("FireRun", _player->_position, _player->_scale, _alpha);
+			}
+		}
+		break;
 	}
 }

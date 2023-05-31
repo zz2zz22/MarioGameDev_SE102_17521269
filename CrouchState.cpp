@@ -38,5 +38,13 @@ void CrouchState::Render() {
 			_player->_animatedSprite.PlaySpriteAnimation("BigCrouch", { _player->_position.x, _player->_position.y - CROUCH_OFFSET }, _player->_scale, _alpha);
 		}
 		break;
+	case _Form::FIRE:
+		if (_player->IsInPipe()) {
+			_player->_animatedSprite.PlaySpriteAnimation("FireFront", _player->_position);
+		}
+		else {
+			_player->_animatedSprite.PlaySpriteAnimation("FireCrouch", { _player->_position.x, _player->_position.y - CROUCH_OFFSET }, _player->_scale, _alpha);
+		}
+		break;
 	}
 }

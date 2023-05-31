@@ -60,5 +60,22 @@ void FallState::Render() {
 			_player->_animatedSprite.PlaySpriteAnimation("BigFall", _player->_position, _player->_scale, _alpha);
 		}
 		break;
+	case _Form::FIRE:
+		if (_player->IsInPipe()) {
+			_player->_animatedSprite.PlaySpriteAnimation("FireFront", _player->_position);
+		}
+		else if (_player->_acceleration >= _player->_ACCEL_THRESHOLD && _player->_heldEntity == nullptr) {
+			_player->_animatedSprite.PlaySpriteAnimation("FireSuperFall", _player->_position, _player->_scale, _alpha);
+		}
+		else if (_player->_isNextToShell) {
+			_player->_animatedSprite.PlaySpriteAnimation("FireKick", _player->_position, _player->_scale, _alpha);
+		}
+		else if (_player->_heldEntity != nullptr) {
+			_player->_animatedSprite.PlaySpriteAnimation("FireHoldJump", _player->_position, _player->_scale, _alpha);
+		}
+		else {
+			_player->_animatedSprite.PlaySpriteAnimation("FireFall", _player->_position, _player->_scale, _alpha);
+		}
+		break;
 	}
 }
