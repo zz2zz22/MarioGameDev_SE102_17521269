@@ -184,7 +184,6 @@ SmokePuff	252	0	268	16
 SmokePuff	270	0	286	16
 SmokePuff	288	0	304	16
 [/]
-[/]
 
 [HITBOXES]
 -7	-7	14	14

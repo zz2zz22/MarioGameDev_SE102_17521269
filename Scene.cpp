@@ -34,6 +34,18 @@ bool Scene::_IsEntityAliveAndIB(Entity* entity) const {
 }
 
 unsigned int Scene::_GetNextThemeID() {
+	//This wasn't the result I sought after
+	//I needed something that could loop back to the first element when the container overflows
+	/*auto it = std::find_if(
+		_mainThemeIDs.begin(),
+		_mainThemeIDs.end(),
+		[&](unsigned int ID) {
+			return ID == _currentThemeID;
+		}
+	);
+
+	return *(std::next(it, 1));*/
+
 	auto it = std::find(_mainThemeIDs.begin(), _mainThemeIDs.end(), _currentThemeID);
 	++it;
 
@@ -208,14 +220,20 @@ void Scene::_ParseEntityData(std::string line) {
 
 		_entities.emplace_back(_player);
 		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL:
+		entity = new Tail;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_COIN:
+		entity = new Coin;
+		break;
+	}
 
-		if (entity != nullptr) {
-			entity->SetOjectType(objectType);
-			entity->ParseData(tokens.at(1), texture, extraData);
-			entity->SetPosition(position);
+	if (entity != nullptr) {
+		entity->SetOjectType(objectType);
+		entity->ParseData(tokens.at(1), texture, extraData);
+		entity->SetPosition(position);
 
-			_entities.emplace_back(entity);
-		}
+		_entities.emplace_back(entity);
 	}
 }
 
@@ -371,8 +389,19 @@ Entity* Scene::CreateEntityFromData(std::string objectID, std::string dataPath, 
 	GameObject::GameObjectType objectType = static_cast<GameObject::GameObjectType>(std::stoul(objectID));
 	unsigned int texID = std::stoul(textureID);
 	Texture* texture = GetTexture(texID);
-	//Object add area
-	
+
+	switch (objectType) {
+		//Projectiles
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_PLAYERFIREBALL:
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_VENUSFIREBALL:
+		entity = new Fireball;
+		break;
+		//Items
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_COIN:
+		entity = new Coin;
+		break;
+	}
+
 	entity->SetOjectType(objectType);
 	entity->ParseData(dataPath, texture);
 	return entity;

@@ -1,3 +1,4 @@
+#include "GameUtils.h"
 #include "Pipeline.h"
 
 Pipeline* Pipeline::_pipelineInstance = nullptr;
