@@ -63,6 +63,7 @@ assets\data\overworld_1\grid\grid_stage_one.txt
 [/]
 
 [HUD]
+assets\data\hud\hud.txt	3
 [/]
 
 #The effect that will be used for displaying points given to the player

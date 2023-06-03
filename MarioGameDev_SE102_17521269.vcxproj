@@ -147,6 +147,7 @@
     <ClInclude Include="GameUtils.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Hitbox.h" />
+    <ClInclude Include="HUD.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="JumpState.h" />
     <ClInclude Include="MapState.h" />
@@ -178,6 +179,7 @@
     <ClCompile Include="GameUtils.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Hitbox.cpp" />
+    <ClCompile Include="HUD.cpp" />
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="JumpState.cpp" />
     <ClCompile Include="main.cpp" />
