@@ -135,6 +135,7 @@
     <ClInclude Include="AnimatedSprite.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Coin.h" />
     <ClInclude Include="CrouchState.h" />
     <ClInclude Include="Device.h" />
     <ClInclude Include="Entity.h" />
@@ -146,8 +147,10 @@
     <ClInclude Include="GameUtils.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Hitbox.h" />
+    <ClInclude Include="HUD.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="JumpState.h" />
+    <ClInclude Include="MapState.h" />
     <ClInclude Include="Pipeline.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
@@ -165,6 +168,7 @@
     <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Coin.cpp" />
     <ClCompile Include="CrouchState.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -175,9 +179,11 @@
     <ClCompile Include="GameUtils.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Hitbox.cpp" />
+    <ClCompile Include="HUD.cpp" />
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="JumpState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MapState.cpp" />
     <ClCompile Include="Pipeline.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />

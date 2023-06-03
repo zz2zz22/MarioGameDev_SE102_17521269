@@ -191,6 +191,12 @@ void ScenePlay::Update(DWORD deltaTime) {
 
 	const float HUD_OFFSET_X = 134.0f;
 	const float HUD_OFFSET_Y = 161.0f;
+	_hud->Update(_sceneTime);
+	_hud->SetPosition({
+		floor(_cameraInstance->GetPosition().x) + HUD_OFFSET_X,
+		floor(_cameraInstance->GetPosition().y) + HUD_OFFSET_Y
+		}
+	);
 
 	_background->Update();
 
@@ -202,6 +208,11 @@ void ScenePlay::Update(DWORD deltaTime) {
 			_player->GetSceneRemainingTime(_sceneTime);
 
 			_sceneTime = 0;
+		}
+
+		if (IsTransitioningToScene() && GetTickCount64() - _toSceneStart > _toSceneTime) {
+			_toSceneStart = 0;
+			SceneManager::GetInstance()->ChangeScene(static_cast<unsigned int>(SceneType::SCENE_TYPE_MAP));
 		}
 	}
 }
@@ -215,6 +226,7 @@ void ScenePlay::Render() {
 			entity->Render();
 		}
 	}
+	_hud->Render();
 }
 
 void ScenePlay::Release() {
@@ -222,8 +234,11 @@ void ScenePlay::Release() {
 	sprintf_s(debug, "[SCENE] Unloading scene with ID: %d\n", _sceneID);
 	OutputDebugStringA(debug);
 
-	_background->Release();
+	//_background->Release();
 	delete _background;
+
+	//_hud->Release();
+	delete _hud;
 
 	if (_grid != nullptr) {
 		_grid->Release();

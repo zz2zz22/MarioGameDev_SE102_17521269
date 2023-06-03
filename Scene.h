@@ -7,6 +7,7 @@
 #include "Tile.h"
 
 #include "Player.h"
+#include "HUD.h"
 
 #include <vector>
 #include <string>
@@ -18,7 +19,11 @@ class PropPlayer;
 class Scene {
 public:
 	enum class SceneType {
-		SCENE_TYPE_STAGE_ONE = 0
+		SCENE_TYPE_INTRO = 0,
+		SCENE_TYPE_MAP = 10,
+		SCENE_TYPE_STAGE_ONE = 11,
+		SCENE_TYPE_STAGE_FOUR = 14,
+		SCENE_TYPE_STAGE_DEBUG = 999
 	};
 
 protected:
@@ -62,9 +67,10 @@ protected:
 
 	Camera* _cameraInstance;
 	Background* _background;
+	HUD* _hud;
 
 	Player* _player;
-	
+
 	Grid* _grid;
 
 	bool _IsEntityInViewport(Entity*, RECTF) const;

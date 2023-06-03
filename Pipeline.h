@@ -1,5 +1,4 @@
 #pragma once
-#include "GameUtils.h"
 
 //Render pipeline or graphics pipeline, AIO
 class Pipeline {
