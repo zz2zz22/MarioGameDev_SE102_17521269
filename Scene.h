@@ -7,6 +7,7 @@
 #include "Tile.h"
 
 #include "Player.h"
+#include "HUD.h"
 
 #include <vector>
 #include <string>
@@ -66,9 +67,10 @@ protected:
 
 	Camera* _cameraInstance;
 	Background* _background;
+	HUD* _hud;
 
 	Player* _player;
-	
+
 	Grid* _grid;
 
 	bool _IsEntityInViewport(Entity*, RECTF) const;

@@ -290,6 +290,9 @@ void Scene::_ParseHUD(std::string line) {
 
 	unsigned int textureID = std::stoul(tokens.at(1));
 	Texture* texture = GetTexture(textureID);
+
+	_hud = new HUD(_player);
+	_hud->ParseData(tokens.at(0), texture);
 }
 
 void Scene::_ParseBackground(std::string line) {
@@ -427,6 +430,7 @@ void Scene::LoadScene() {
 
 	_player = nullptr;
 
+	_hud = nullptr;
 	_background = nullptr;
 	_grid = nullptr;
 	_cameraInstance = Camera::GetInstance();
