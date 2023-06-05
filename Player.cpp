@@ -464,6 +464,29 @@ void Player::HandleCollisionResult(
 		}
 		break;
 	}
+	switch (eventEntity->GetObjectType()) {
+		//----------------------------------------------------------------------------
+		//NPCs
+		//----------------------------------------------------------------------------
+	case GameObjectType::GAMEOBJECT_TYPE_GOOMBA:
+	{
+		Goomba* goomba = dynamic_cast<Goomba*>(eventEntity);
+		if (eventNormal.y == -1.0f) {
+			if (goomba->GetHealth() > 0) {
+				goomba->TakeDamage();
+				_velocity.y = -_bounceSpeed;
+			}
+		}
+		else if (eventNormal.y == 1.0f || eventNormal.x != 0.0f) {
+			if (goomba->GetHealth() > 0) {
+				TakeDamage();
+				_velocity.y = -_bounceSpeed;
+			}
+		}
+	}
+	break;
+	}
+
 }
 
 void Player::HandleOverlap(Entity* entity) {}
