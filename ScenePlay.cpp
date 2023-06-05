@@ -52,6 +52,11 @@ void ScenePlay::OnKeyDown(int keyCode) {
 		}
 		_player->SetHealth(4);
 		break;
+	case DIK_R:
+		//Reset button
+		ScenePlay::Release();
+		ScenePlay::LoadScene();
+		break;
 	}
 
 	_player->OnKeyDownGame(keyCode);
@@ -212,7 +217,9 @@ void ScenePlay::Update(DWORD deltaTime) {
 
 		if (IsTransitioningToScene() && GetTickCount64() - _toSceneStart > _toSceneTime) {
 			_toSceneStart = 0;
-			SceneManager::GetInstance()->ChangeScene(static_cast<unsigned int>(SceneType::SCENE_TYPE_MAP));
+			//SceneManager::GetInstance()->ChangeScene(static_cast<unsigned int>(SceneType::SCENE_TYPE_MAP));
+			ScenePlay::Release();
+			ScenePlay::LoadScene();
 		}
 	}
 }
@@ -234,10 +241,12 @@ void ScenePlay::Release() {
 	sprintf_s(debug, "[SCENE] Unloading scene with ID: %d\n", _sceneID);
 	OutputDebugStringA(debug);
 
-	//_background->Release();
+	if (_background != nullptr)
+		_background->Release();
 	delete _background;
 
-	//_hud->Release();
+	if (_hud != nullptr)
+		_hud->Release();
 	delete _hud;
 
 	if (_grid != nullptr) {
