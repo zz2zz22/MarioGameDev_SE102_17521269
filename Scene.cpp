@@ -220,6 +220,9 @@ void Scene::_ParseEntityData(std::string line) {
 
 		_entities.emplace_back(_player);
 		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_GOOMBA:
+		entity = new Goomba;
+		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL:
 		entity = new Tail;
 		break;
