@@ -229,6 +229,9 @@ void Scene::_ParseEntityData(std::string line) {
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_COIN:
 		entity = new Coin;
 		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_MASKTILE:
+		entity = new MaskTile;
+		break;
 	}
 
 	if (entity != nullptr) {
@@ -406,6 +409,7 @@ Entity* Scene::CreateEntityFromData(std::string objectID, std::string dataPath, 
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_COIN:
 		entity = new Coin;
 		break;
+
 	}
 
 	entity->SetOjectType(objectType);

@@ -459,6 +459,7 @@ void Player::HandleCollisionResult(
 
 	switch (eventEntity->GetObjectType()) {
 	case GameObjectType::GAMEOBJECT_TYPE_TILE:
+	case GameObjectType::GAMEOBJECT_TYPE_ONEWAYPLATFORM:
 		if (eventNormal.y == -1.0f) {
 			_isOnGround = true;
 		}

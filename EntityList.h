@@ -6,3 +6,5 @@
 #include "Tail.h"
 
 #include "Coin.h"
+
+#include "MaskTile.h"

@@ -51,11 +51,20 @@
 #Tail
 197	assets\data\player\tail.txt	2	0	0
 
+#Mask tile
+555	assets\data\mask\greenpipe_long.txt	8	360	384
+555	assets\data\mask\greenpipe_short.txt	8	1800	392
+555	assets\data\mask\greenpipe_long.txt	8	1864	384
+555	assets\data\mask\greenpipe_long.txt	8	2264	128
+555	assets\data\mask\greenpipe_short.txt	8	2328	392
+555	assets\data\mask\ground.txt	8	1800	416
+555	assets\data\mask\ground.txt	8	2328	416
+555	assets\data\mask\blackpipe.txt	8	2104	472
+555	assets\data\mask\blackpipe.txt	8	2328	472
 [/]
 
 #objID	x	y	width	height
 [TILEDATA]
-
 #Floor tile 624x16
 777	0	416	624	16
 #Floor tile 464x32
@@ -68,6 +77,9 @@
 777	1680	416	560	16
 #Floor tile 560x16 (999 in width)
 777	2256	416	999	16
+
+#One way pink block 1 48x48
+999	240	368	48	48
 [/]
 
 [GRID]
@@ -289,4 +301,15 @@ assets\data\hud\hud.txt	3
 17	34	33	50	2768	416
 17	34	33	50	2784	416
 34	34	50	50	2800	416
+
+#One way pink block 1 48x48
+0	119	16	135	240	368
+17	119	33	135	256	368
+34	119	50	135	272	368
+0	136	16	152	240	384
+17	136	33	152	256	384
+34	136	50	152	272	384
+0	153	16	169	240	400
+17	153	33	169	256	400
+34	153	50	169	272	400
 [/]

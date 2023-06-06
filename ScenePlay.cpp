@@ -169,7 +169,19 @@ void ScenePlay::Update(DWORD deltaTime) {
 			entity->SetActive(_IsEntityInViewport(entity, _cameraInstance->GetViewport()));
 			entity->Update(deltaTime, &_entities, &_tiles, _grid);
 
-			//Entities events
+			switch (entity->GetObjectType()) {
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL:
+			{
+				const float OFFSET = 4.0f;
+				Tail* tail = dynamic_cast<Tail*>(entity);
+				tail->SetPosition({
+					_player->GetPosition().x,
+					_player->IsAttacking() ? _player->GetPosition().y + OFFSET : 0.0f
+					}
+				);
+			}
+			break;
+			}
 
 			if (_grid != nullptr) {
 				Cell* newCell = _grid->GetCell(entity->GetPosition());
