@@ -229,8 +229,17 @@ void Scene::_ParseEntityData(std::string line) {
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_COIN:
 		entity = new Coin;
 		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
+		entity = new QuestionBlock;
+		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_MASKTILE:
 		entity = new MaskTile;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
+		entity = new Mushroom;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_LEAF:
+		entity = new Leaf;
 		break;
 	}
 
@@ -406,10 +415,19 @@ Entity* Scene::CreateEntityFromData(std::string objectID, std::string dataPath, 
 		entity = new Fireball;
 		break;
 		//Items
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_GREENMUSHROOM:
+		entity = new Mushroom;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_LEAF:
+		entity = new Leaf;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_FLOWER:
+		entity = new Flower;
+		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_COIN:
 		entity = new Coin;
 		break;
-
 	}
 
 	entity->SetOjectType(objectType);

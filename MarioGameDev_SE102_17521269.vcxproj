@@ -160,6 +160,7 @@
     <ClInclude Include="Pipeline.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
+    <ClInclude Include="QuestionBlock.h" />
     <ClInclude Include="RunState.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
@@ -199,6 +200,7 @@
     <ClCompile Include="Pipeline.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />
+    <ClCompile Include="QuestionBlock.cpp" />
     <ClCompile Include="RunState.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
