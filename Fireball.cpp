@@ -76,7 +76,20 @@ void Fireball::HandleCollisionResult(
 	Entity* eventEntity = result->entity;
 	D3DXVECTOR2 eventNormal = result->normal;
 
-	//Handle fireball collision event with other objects
+	switch (_objectType) {
+	case GameObjectType::GAMEOBJECT_TYPE_PLAYERFIREBALL:
+		if (eventNormal.y == -1.0f) {
+			_velocity.y = -_bounceSpeed;
+		}
+
+		switch (eventEntity->GetObjectType()) {
+		case GameObjectType::GAMEOBJECT_TYPE_GOOMBA:
+			eventEntity->SetHealth(0);
+			eventEntity->SetScale({ 1.0f, -1.0f });
+			eventEntity->SetVelocity({ 0.0f, -_bounceSpeed });
+			break;
+		}
+	}
 }
 
 void Fireball::Update(

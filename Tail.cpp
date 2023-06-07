@@ -41,6 +41,23 @@ void Tail::HandleCollisionResult(
 
 void Tail::HandleOverlap(Entity* entity) {
 	//Handle objects collision event with tail object when player hit attack button in raccoon form
+	switch (entity->GetObjectType()) {
+	case GameObjectType::GAMEOBJECT_TYPE_GOOMBA:
+		_touchedEntity = entity;
+		break;
+	}
+
+	switch (entity->GetObjectType()) {
+	case GameObjectType::GAMEOBJECT_TYPE_GOOMBA:
+	{
+		Goomba* goomba = dynamic_cast<Goomba*>(entity);
+		goomba->animationName = "Walk";
+		goomba->SetHealth(0);
+		goomba->SetScale({ 1.0f, -1.0f });
+		goomba->SetVelocity({ 0.0f, -_bounceSpeed });
+	}
+	break;
+	}
 }
 
 void Tail::Update(

@@ -145,12 +145,16 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameUtils.h" />
+    <ClInclude Include="Goomba.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Hitbox.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="JumpState.h" />
     <ClInclude Include="MapState.h" />
+    <ClInclude Include="MaskTile.h" />
+    <ClInclude Include="Mushroom.h" />
+    <ClInclude Include="Paragoomba.h" />
     <ClInclude Include="Pipeline.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
@@ -177,6 +181,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameUtils.cpp" />
+    <ClCompile Include="Goomba.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Hitbox.cpp" />
     <ClCompile Include="HUD.cpp" />
@@ -184,6 +189,9 @@
     <ClCompile Include="JumpState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapState.cpp" />
+    <ClCompile Include="MaskTile.cpp" />
+    <ClCompile Include="Mushroom.cpp" />
+    <ClCompile Include="Paragoomba.cpp" />
     <ClCompile Include="Pipeline.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />

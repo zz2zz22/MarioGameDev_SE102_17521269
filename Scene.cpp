@@ -220,11 +220,17 @@ void Scene::_ParseEntityData(std::string line) {
 
 		_entities.emplace_back(_player);
 		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_GOOMBA:
+		entity = new Goomba;
+		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL:
 		entity = new Tail;
 		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_COIN:
 		entity = new Coin;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_MASKTILE:
+		entity = new MaskTile;
 		break;
 	}
 
@@ -403,6 +409,7 @@ Entity* Scene::CreateEntityFromData(std::string objectID, std::string dataPath, 
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_COIN:
 		entity = new Coin;
 		break;
+
 	}
 
 	entity->SetOjectType(objectType);

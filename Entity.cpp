@@ -255,6 +255,11 @@ CollisionEvent* Entity::SweptAABBEx(Entity*& entity) {
 
 	SweptAABB(movingEntity, staticEntity, relativeDistance, normal, time);
 
+	//Make mask tile pass through
+	if (entity->GetObjectType() == GameObjectType::GAMEOBJECT_TYPE_ONEWAYPLATFORM) {
+		normal.x = 0.0f;
+	}
+
 	return new CollisionEvent(entity, normal, relativeDistance, time);
 }
 
