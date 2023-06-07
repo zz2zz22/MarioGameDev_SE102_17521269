@@ -153,6 +153,7 @@
     <ClInclude Include="JumpState.h" />
     <ClInclude Include="MapState.h" />
     <ClInclude Include="MaskTile.h" />
+    <ClInclude Include="Mushroom.h" />
     <ClInclude Include="Paragoomba.h" />
     <ClInclude Include="Pipeline.h" />
     <ClInclude Include="Player.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapState.cpp" />
     <ClCompile Include="MaskTile.cpp" />
+    <ClCompile Include="Mushroom.cpp" />
     <ClCompile Include="Paragoomba.cpp" />
     <ClCompile Include="Pipeline.cpp" />
     <ClCompile Include="Player.cpp" />
