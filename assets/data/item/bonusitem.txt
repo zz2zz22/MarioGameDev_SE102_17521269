@@ -1,0 +1,17 @@
+[SPRITES]
+BonusItem	0	34	16	50	3	100
+BonusItem	17	34	33	50
+BonusItem	34	34	50	50
+
+Shroom	0	34	16	50	3	100
+Shroom	51	34	67	50
+Shroom	136	34	152	50
+
+Flower	17	34	33	50	3	100
+Flower	68	34	84	50
+Flower	136	34	152	50
+[/]
+
+[HITBOXES]
+-8	-8	16	16
+[/]
