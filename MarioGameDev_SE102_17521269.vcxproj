@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="AnimatedSprite.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="BrickDebris.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Coin.h" />
     <ClInclude Include="CrouchState.h" />
@@ -174,6 +175,7 @@
   <ItemGroup>
     <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BrickDebris.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Coin.cpp" />
     <ClCompile Include="CrouchState.cpp" />
