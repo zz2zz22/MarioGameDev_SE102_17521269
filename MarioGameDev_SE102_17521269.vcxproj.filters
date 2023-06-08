@@ -135,6 +135,12 @@
     <ClInclude Include="BrickDebris.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShinyBrick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameUtils.cpp">
@@ -252,6 +258,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BrickDebris.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShinyBrick.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
