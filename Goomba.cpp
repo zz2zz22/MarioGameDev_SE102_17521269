@@ -84,6 +84,7 @@ void Goomba::HandleCollisionResult(
 	case GameObjectType::GAMEOBJECT_TYPE_PARAGOOMBA:
 	case GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
 	case GameObjectType::GAMEOBJECT_TYPE_VENUSPLANT:
+	case GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
 	case GameObjectType::GAMEOBJECT_TYPE_TILE:
 		if (eventNormal.x != 0.0f) {
 			_normal.x = -_normal.x;

@@ -1,4 +1,5 @@
 [SPRITES]
+#ani	left	top	right	bot	Frames	AniSpeed
 #SMALL
 Idle	0	0	16	16	1	0
 

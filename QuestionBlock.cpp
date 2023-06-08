@@ -128,7 +128,6 @@ void QuestionBlock::Update(
 	Entity::Update(deltaTime, collidableEntities, collidableTiles, grid);
 	//GameObject::Update(deltaTime);
 
-	//ignore the gravity
 	if (_position.y < _originalPos.y) {
 		_velocity.y += _gravity * deltaTime;
 	}
