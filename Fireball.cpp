@@ -84,11 +84,30 @@ void Fireball::HandleCollisionResult(
 
 		switch (eventEntity->GetObjectType()) {
 		case GameObjectType::GAMEOBJECT_TYPE_GOOMBA:
+		case GameObjectType::GAMEOBJECT_TYPE_PARAGOOMBA:
 			eventEntity->SetHealth(0);
 			eventEntity->SetScale({ 1.0f, -1.0f });
 			eventEntity->SetVelocity({ 0.0f, -_bounceSpeed });
 			break;
 		}
+	case GameObjectType::GAMEOBJECT_TYPE_COIN:
+	{
+		Coin* coin = dynamic_cast<Coin*>(eventEntity);
+		if (coin->GetHealth() == 3 && eventNormal.x != 0.0f) {
+			coin->SetHealth(-1);
+			TakeDamage();
+		}
+	}
+	break;
+	case GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
+	{
+		QuestionBlock* questionBlock = dynamic_cast<QuestionBlock*>(eventEntity);
+		if (eventNormal.x != 0.0f) {
+			questionBlock->TakeDamage();
+			TakeDamage();
+		}
+	}
+	break;
 	}
 }
 

@@ -223,11 +223,32 @@ void Scene::_ParseEntityData(std::string line) {
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_GOOMBA:
 		entity = new Goomba;
 		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_PARAGOOMBA:
+		entity = new Paragoomba;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_KOOPA:
+		entity = new Koopa;
+		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL:
 		entity = new Tail;
 		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_COIN:
 		entity = new Coin;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
+		entity = new Mushroom;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_LEAF:
+		entity = new Leaf;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
+		entity = new QuestionBlock;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_SHINYBRICK:
+		entity = new ShinyBrick;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_PBLOCK:
+		entity = new PBlock;
 		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_MASKTILE:
 		entity = new MaskTile;
@@ -406,10 +427,27 @@ Entity* Scene::CreateEntityFromData(std::string objectID, std::string dataPath, 
 		entity = new Fireball;
 		break;
 		//Items
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_GREENMUSHROOM:
+		entity = new Mushroom;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_LEAF:
+		entity = new Leaf;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_FLOWER:
+		entity = new Flower;
+		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_COIN:
 		entity = new Coin;
 		break;
-
+		//Animated blocks
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_PBLOCK:
+		entity = new PBlock;
+		break;
+		//Effects
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_BRICKEFFECT:
+		entity = new BrickDebris;
+		break;
 	}
 
 	entity->SetOjectType(objectType);

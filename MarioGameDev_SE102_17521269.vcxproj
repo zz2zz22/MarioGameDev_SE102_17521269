@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="AnimatedSprite.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="BrickDebris.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Coin.h" />
     <ClInclude Include="CrouchState.h" />
@@ -142,6 +143,7 @@
     <ClInclude Include="EntityList.h" />
     <ClInclude Include="FallState.h" />
     <ClInclude Include="Fireball.h" />
+    <ClInclude Include="Flower.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameUtils.h" />
@@ -151,18 +153,24 @@
     <ClInclude Include="HUD.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="JumpState.h" />
+    <ClInclude Include="Koopa.h" />
+    <ClInclude Include="Leaf.h" />
     <ClInclude Include="MapState.h" />
     <ClInclude Include="MaskTile.h" />
     <ClInclude Include="Mushroom.h" />
     <ClInclude Include="Paragoomba.h" />
+    <ClInclude Include="PBlock.h" />
     <ClInclude Include="Pipeline.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
+    <ClInclude Include="QuestionBlock.h" />
     <ClInclude Include="RunState.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ScenePlay.h" />
+    <ClInclude Include="ShinyBrick.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Star.h" />
     <ClInclude Include="Tail.h" />
     <ClInclude Include="ThrowState.h" />
     <ClInclude Include="Tile.h" />
@@ -171,6 +179,7 @@
   <ItemGroup>
     <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BrickDebris.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Coin.cpp" />
     <ClCompile Include="CrouchState.cpp" />
@@ -178,6 +187,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FallState.cpp" />
     <ClCompile Include="Fireball.cpp" />
+    <ClCompile Include="Flower.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameUtils.cpp" />
@@ -187,19 +197,25 @@
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="JumpState.cpp" />
+    <ClCompile Include="Koopa.cpp" />
+    <ClCompile Include="Leaf.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapState.cpp" />
     <ClCompile Include="MaskTile.cpp" />
     <ClCompile Include="Mushroom.cpp" />
     <ClCompile Include="Paragoomba.cpp" />
+    <ClCompile Include="PBlock.cpp" />
     <ClCompile Include="Pipeline.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />
+    <ClCompile Include="QuestionBlock.cpp" />
     <ClCompile Include="RunState.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ScenePlay.cpp" />
+    <ClCompile Include="ShinyBrick.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Star.cpp" />
     <ClCompile Include="Tail.cpp" />
     <ClCompile Include="ThrowState.cpp" />
     <ClCompile Include="Tile.cpp" />

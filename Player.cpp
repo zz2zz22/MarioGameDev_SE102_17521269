@@ -458,13 +458,21 @@ void Player::HandleCollisionResult(
 	}
 
 	switch (eventEntity->GetObjectType()) {
+	case GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
 	case GameObjectType::GAMEOBJECT_TYPE_TILE:
 	case GameObjectType::GAMEOBJECT_TYPE_ONEWAYPLATFORM:
 		if (eventNormal.y == -1.0f) {
 			_isOnGround = true;
 		}
 		break;
+	case GameObjectType::GAMEOBJECT_TYPE_COIN:
+		//Is brick
+		if (eventEntity->GetHealth() == 3) {
+			_isOnGround = true;
+		}
+		break;
 	}
+
 	switch (eventEntity->GetObjectType()) {
 		//----------------------------------------------------------------------------
 		//NPCs
@@ -486,8 +494,87 @@ void Player::HandleCollisionResult(
 		}
 	}
 	break;
-	}
+	//----------------------------------------------------------------------------
+	//NPCs
+	//----------------------------------------------------------------------------
 
+	//----------------------------------------------------------------------------
+	//ITEMS
+	//----------------------------------------------------------------------------
+	case GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
+	{
+		Mushroom* mushroom = dynamic_cast<Mushroom*>(eventEntity);
+		mushroom->TakeDamage();
+		switch (mushroom->GetObjectType()) {
+		case GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
+			if (_health == 1) {
+				_health = 2;
+				_position.y -= GetBoxHeight();
+
+				if (!IsInvulnerable()) {
+					_originalVel = _velocity;
+
+					StartInvulnerableTimer();
+				}
+			}
+			break;
+		}
+	}
+	break;
+	case GameObjectType::GAMEOBJECT_TYPE_LEAF:
+	{
+		Leaf* leaf = dynamic_cast<Leaf*>(eventEntity);
+		leaf->TakeDamage();
+
+		if (_health != 4) {
+			if (_health == 1) {
+				_health = 2;
+			}
+			else {
+				_health = 4;
+			}
+
+			if (!IsInvulnerable()) {
+				_originalVel = _velocity;
+
+				StartInvulnerableTimer();
+			}
+		}
+	}
+	break;
+	case GameObjectType::GAMEOBJECT_TYPE_COIN:
+	{
+		Coin* coin = dynamic_cast<Coin*>(eventEntity);
+		if (coin->GetHealth() == 1) {
+			coin->TakeDamage();
+		}
+		//Is brick
+		else if (coin->GetHealth() == 3) {
+			if (eventNormal.y == 1.0f) {
+				coin->SetHealth(-1);
+			}
+		}
+	}
+	break;
+	//----------------------------------------------------------------------------
+	//ITEMS
+	//----------------------------------------------------------------------------
+
+	//----------------------------------------------------------------------------
+	//ANIMATED BLOCKS
+	//----------------------------------------------------------------------------
+	case GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
+	{
+		QuestionBlock* questionBlock = dynamic_cast<QuestionBlock*>(eventEntity);
+		if (eventNormal.y == 1.0f) {
+			questionBlock->TakeDamage();
+		}
+	}
+	break;
+	//----------------------------------------------------------------------------
+	//ANIMATED BLOCKS
+	//----------------------------------------------------------------------------
+	}
 }
 
 void Player::HandleOverlap(Entity* entity) {}
@@ -527,6 +614,9 @@ void Player::Update(
 
 		_velocity = _originalVel;
 	}
+	//----------------------------------------------------------------------------
+	//TIMERS
+	//----------------------------------------------------------------------------
 
 	//To show the whole kicking animation
 	if (_isNextToShell && GetTickCount64() % 500 == 0) {

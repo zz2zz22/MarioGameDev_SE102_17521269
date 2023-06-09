@@ -170,6 +170,20 @@ void ScenePlay::Update(DWORD deltaTime) {
 			entity->Update(deltaTime, &_entities, &_tiles, _grid);
 
 			switch (entity->GetObjectType()) {
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_PARAGOOMBA:
+			{
+				Paragoomba* paragoomba = dynamic_cast<Paragoomba*>(entity);
+				if (paragoomba->IsWalking() && paragoomba->GetHealth() == 2) {
+					//Mario is on the right side
+					if (paragoomba->GetPosition().x - _player->GetPosition().x < 0.0f) {
+						paragoomba->SetNormal({ -1.0f, 0.0f });
+					}
+					else {
+						paragoomba->SetNormal({ 1.0f, 0.0f });
+					}
+				}
+			}
+			break;
 			case GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL:
 			{
 				const float OFFSET = 4.0f;
@@ -179,6 +193,29 @@ void ScenePlay::Update(DWORD deltaTime) {
 					_player->IsAttacking() ? _player->GetPosition().y + OFFSET : 0.0f
 					}
 				);
+			}
+			break;
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_GREENMUSHROOM:
+			{
+				Mushroom* mushroom = dynamic_cast<Mushroom*>(entity);
+				if (mushroom->IsEmerging()) {
+					//Mario is on the right side
+					if (mushroom->GetPosition().x - _player->GetPosition().x < 0.0f) {
+						mushroom->SetNormal({ 1.0f, 1.0f });
+					}
+					else {
+						mushroom->SetNormal({ -1.0f, 1.0f });
+					}
+				}
+			}
+			break;
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
+			{
+				QuestionBlock* questionBlock = dynamic_cast<QuestionBlock*>(entity);
+				if (questionBlock->tookDamage) {
+					AddEntityToScene(questionBlock->SpawnItem(_player->GetHealth()));
+				}
 			}
 			break;
 			}

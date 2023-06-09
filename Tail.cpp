@@ -49,12 +49,28 @@ void Tail::HandleOverlap(Entity* entity) {
 
 	switch (entity->GetObjectType()) {
 	case GameObjectType::GAMEOBJECT_TYPE_GOOMBA:
+	case GameObjectType::GAMEOBJECT_TYPE_PARAGOOMBA:
 	{
 		Goomba* goomba = dynamic_cast<Goomba*>(entity);
 		goomba->animationName = "Walk";
 		goomba->SetHealth(0);
 		goomba->SetScale({ 1.0f, -1.0f });
 		goomba->SetVelocity({ 0.0f, -_bounceSpeed });
+	}
+	break;
+	case GameObjectType::GAMEOBJECT_TYPE_COIN:
+	{
+		Coin* coin = dynamic_cast<Coin*>(entity);
+		//Is brick
+		if (coin->GetHealth() == 3) {
+			coin->SetHealth(-1);
+		}
+	}
+	break;
+	case GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
+	{
+		QuestionBlock* questionBlock = dynamic_cast<QuestionBlock*>(entity);
+		questionBlock->TakeDamage();
 	}
 	break;
 	}
