@@ -48,6 +48,12 @@
 #Goomba
 100	assets\data\npc\goomba_yellow.txt	4	224	400	yellow
 
+#Paragoomba
+101	assets\data\npc\goomba_red.txt	4	946	384	red
+
+#Koopa
+102	assets\data\npc\koopa_red.txt	4	576	352	red
+
 #Tail
 197	assets\data\player\tail.txt	2	0	0
 
