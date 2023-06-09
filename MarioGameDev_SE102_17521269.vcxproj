@@ -169,6 +169,7 @@
     <ClInclude Include="ScenePlay.h" />
     <ClInclude Include="ShinyBrick.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Star.h" />
     <ClInclude Include="Tail.h" />
     <ClInclude Include="ThrowState.h" />
     <ClInclude Include="Tile.h" />
@@ -212,6 +213,7 @@
     <ClCompile Include="ScenePlay.cpp" />
     <ClCompile Include="ShinyBrick.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Star.cpp" />
     <ClCompile Include="Tail.cpp" />
     <ClCompile Include="ThrowState.cpp" />
     <ClCompile Include="Tile.cpp" />
