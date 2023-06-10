@@ -478,6 +478,7 @@ void Player::HandleCollisionResult(
 		//NPCs
 		//----------------------------------------------------------------------------
 	case GameObjectType::GAMEOBJECT_TYPE_GOOMBA:
+	case GameObjectType::GAMEOBJECT_TYPE_PARAGOOMBA:
 	{
 		Goomba* goomba = dynamic_cast<Goomba*>(eventEntity);
 		if (eventNormal.y == -1.0f) {
@@ -494,6 +495,61 @@ void Player::HandleCollisionResult(
 		}
 	}
 	break;
+	case GameObjectType::GAMEOBJECT_TYPE_KOOPA:
+	case GameObjectType::GAMEOBJECT_TYPE_PARAKOOPA:
+	{
+		Koopa* koopa = dynamic_cast<Koopa*>(eventEntity);
+		if (eventNormal.y == -1.0f) {
+			if (koopa->GetHealth() > 0) {
+				_velocity.y = -_bounceSpeed;
+			}
+
+			if (koopa->GetHealth() != 1) {
+				koopa->TakeDamage();
+			}
+			else if (koopa->GetHealth() == 1) {
+				koopa->SetHealth(2);
+			}
+		}
+		else if (eventNormal.y == 1.0f) {
+			if (koopa->GetHealth() > 1 && koopa->GetHealth() != 2) {
+				TakeDamage();
+				_velocity.y = -_bounceSpeed;
+			}
+			else if (koopa->GetHealth() == 2) {
+				koopa->TakeDamage();
+			}
+		}
+		else if (eventNormal.x != 0.0f) {
+			if (koopa->GetHealth() == 2) {
+				if (_isHolding) {
+					if (_heldEntity == nullptr) {
+						_heldEntity = koopa;
+						koopa->isBeingHeld = true;
+					}
+				}
+				else {
+					_isNextToShell = true;
+					koopa->TakeDamage();
+					koopa->SetNormal({ -_normal.x, koopa->GetNormal().y });
+				}
+			}
+			else {
+				TakeDamage();
+				_velocity.y = -_bounceSpeed;
+			}
+		}
+	}
+	break;
+	case GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
+	{
+		PiranaPlant* piranaPlant = dynamic_cast<PiranaPlant*>(eventEntity);
+		if (piranaPlant->GetHealth() >= 0) {
+			TakeDamage();
+			_velocity.y = -_bounceSpeed;
+		}
+	}
+	break;
 	//----------------------------------------------------------------------------
 	//NPCs
 	//----------------------------------------------------------------------------
@@ -502,6 +558,7 @@ void Player::HandleCollisionResult(
 	//ITEMS
 	//----------------------------------------------------------------------------
 	case GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
+	case GameObjectType::GAMEOBJECT_TYPE_GREENMUSHROOM:
 	{
 		Mushroom* mushroom = dynamic_cast<Mushroom*>(eventEntity);
 		mushroom->TakeDamage();
@@ -542,6 +599,27 @@ void Player::HandleCollisionResult(
 		}
 	}
 	break;
+	case GameObjectType::GAMEOBJECT_TYPE_FLOWER:
+	{
+		Flower* flower = dynamic_cast<Flower*>(eventEntity);
+		flower->TakeDamage();
+
+		if (_health != 3) {
+			if (_health == 1) {
+				_health = 2;
+			}
+			else {
+				_health = 3;
+			}
+
+			if (!IsInvulnerable()) {
+				_originalVel = _velocity;
+
+				StartInvulnerableTimer();
+			}
+		}
+	}
+	break;
 	case GameObjectType::GAMEOBJECT_TYPE_COIN:
 	{
 		Coin* coin = dynamic_cast<Coin*>(eventEntity);
@@ -571,13 +649,59 @@ void Player::HandleCollisionResult(
 		}
 	}
 	break;
+	case GameObjectType::GAMEOBJECT_TYPE_SHINYBRICK:
+	{
+		ShinyBrick* shinyBrick = dynamic_cast<ShinyBrick*>(eventEntity);
+		if (shinyBrick->GetHealth() == 2) {
+			if (eventNormal.y == 1.0f) {
+				if (shinyBrick->GetExtraData().size() == 3) {
+					if (_health > 1) {
+						shinyBrick->SetHealth(-1);
+					}
+				}
+				else {
+					shinyBrick->TakeDamage();
+				}
+			}
+		}
+		//Is coin
+		else if (shinyBrick->GetHealth() == 3) {
+			shinyBrick->SetHealth(-2);
+
+			_coins += 1;
+		}
+	}
+	break;
+	case GameObjectType::GAMEOBJECT_TYPE_PBLOCK:
+	{
+		PBlock* pBlock = dynamic_cast<PBlock*>(eventEntity);
+		if (eventNormal.y == -1.0f) {
+			pBlock->TakeDamage();
+			_velocity.y = -_bounceSpeed;
+		}
+	}
+	break;
 	//----------------------------------------------------------------------------
 	//ANIMATED BLOCKS
 	//----------------------------------------------------------------------------
 	}
 }
 
-void Player::HandleOverlap(Entity* entity) {}
+void Player::HandleOverlap(Entity* entity) {
+	switch (entity->GetObjectType()) {
+	case GameObjectType::GAMEOBJECT_TYPE_BONUSITEM:
+	{
+		BonusItem* bonusItem = dynamic_cast<BonusItem*>(entity);
+		if (bonusItem->GetHealth() == 2) {
+			_bonusItems.emplace_back(bonusItem->GetCurrentItem());
+			bonusItem->TakeDamage();
+		}
+
+		_triggeredStageEnd = true;
+	}
+	break;
+	}
+}
 
 void Player::Update(
 	DWORD deltaTime,

@@ -229,6 +229,12 @@ void Scene::_ParseEntityData(std::string line) {
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_KOOPA:
 		entity = new Koopa;
 		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_PARAKOOPA:
+		entity = new Parakoopa;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
+		entity = new PiranaPlant;
+		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL:
 		entity = new Tail;
 		break;

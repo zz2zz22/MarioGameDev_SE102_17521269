@@ -184,6 +184,42 @@ void ScenePlay::Update(DWORD deltaTime) {
 				}
 			}
 			break;
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_KOOPA:
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_PARAKOOPA:
+			{
+				Koopa* koopa = dynamic_cast<Koopa*>(entity);
+				if (koopa->GetHealth() == 2) {
+					//Mario is on the right side
+					if (koopa->GetPosition().x - _player->GetPosition().x < 0.0f) {
+						koopa->SetNormal({ -1.0f, 0.0f });
+					}
+					else {
+						koopa->SetNormal({ 1.0f, 0.0f });
+					}
+				}
+			}
+			break;
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
+			{
+				PiranaPlant* piranaPlant = dynamic_cast<PiranaPlant*>(entity);
+				piranaPlant->ComparePlayerPosToSelf(_player->GetPosition());
+				//Mario is on the right side
+				if (piranaPlant->GetPosition().x - _player->GetPosition().x < 0.0f) {
+					piranaPlant->SetScale({ -1.0f, piranaPlant->GetScale().y });
+				}
+				else {
+					piranaPlant->SetScale({ 1.0f, piranaPlant->GetScale().y });
+				}
+
+				//Mario is below
+				if (piranaPlant->GetPosition().y - _player->GetPosition().y < 0.0f) {
+					piranaPlant->SetNormal({ -1.0f, piranaPlant->GetNormal().y });
+				}
+				else {
+					piranaPlant->SetNormal({ 1.0f, piranaPlant->GetNormal().y });
+				}
+			}
+			break;
 			case GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL:
 			{
 				const float OFFSET = 4.0f;
