@@ -254,6 +254,52 @@ void ScenePlay::Update(DWORD deltaTime) {
 				}
 			}
 			break;
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_SHINYBRICK:
+			{
+				ShinyBrick* shinyBrick = dynamic_cast<ShinyBrick*>(entity);
+				if (shinyBrick->tookDamage) {
+					AddEntityToScene(shinyBrick->SpawnItem());
+				}
+				else if (shinyBrick->GetHealth() == -1) {
+					const float BOUNCE_SPEED_0 = 0.28f;
+					const float BOUNCE_SPEED_1 = 0.18f;
+					const float RUN_SPEED = 0.08f;
+					const float OFFSET = 10.0f;
+
+					//Top left
+					auto debris = shinyBrick->SpawnDebris();
+					debris->SetVelocity({ -RUN_SPEED, -BOUNCE_SPEED_0 });
+					AddEntityToScene(debris);
+					//Top right
+					debris = shinyBrick->SpawnDebris();
+					debris->SetScale({ -1.0f, 1.0f });
+					debris->SetVelocity({ RUN_SPEED, -BOUNCE_SPEED_0 });
+					AddEntityToScene(debris);
+					//Bottom left
+					debris = shinyBrick->SpawnDebris();
+					debris->SetVelocity({ -RUN_SPEED, -BOUNCE_SPEED_1 });
+					debris->SetPosition({ debris->GetPosition().x, debris->GetPosition().y + OFFSET });
+					AddEntityToScene(debris);
+					//Bottom right
+					debris = shinyBrick->SpawnDebris();
+					debris->SetScale({ -1.0f, 1.0f });
+					debris->SetVelocity({ RUN_SPEED, -BOUNCE_SPEED_1 });
+					debris->SetPosition({ debris->GetPosition().x, debris->GetPosition().y + OFFSET });
+					AddEntityToScene(debris);
+				}
+			}
+			break;
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_PBLOCK:
+			{
+				PBlock* pBlock = dynamic_cast<PBlock*>(entity);
+				if (pBlock->IsActivated() && pBlock->tookDamage) {
+					//Stub
+				}
+				else if (pBlock->hasEnded) {
+					pBlock->hasEnded = false;
+				}
+			}
+			break;
 			}
 
 			if (_grid != nullptr) {
@@ -327,11 +373,11 @@ void ScenePlay::Release() {
 	OutputDebugStringA(debug);
 
 	if (_background != nullptr)
-		_background->Release();
+	_background->Release();
 	delete _background;
 
 	if (_hud != nullptr)
-		_hud->Release();
+	_hud->Release();
 	delete _hud;
 
 	if (_grid != nullptr) {
