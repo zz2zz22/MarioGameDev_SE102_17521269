@@ -47,6 +47,9 @@
 #NPC
 #Goomba
 100	assets\data\npc\goomba_yellow.txt	4	224	400	yellow
+100	assets\data\npc\goomba_yellow.txt	4	528	400	yellow
+100	assets\data\npc\goomba_yellow.txt	4	832	384	yellow
+100	assets\data\npc\goomba_yellow.txt	4	880	384	yellow
 
 #Paragoomba
 101	assets\data\npc\goomba_red.txt	4	946	384	red
@@ -54,8 +57,19 @@
 #Koopa
 102	assets\data\npc\koopa_red.txt	4	576	352	red
 
+#Parakoopa
+103	assets\data\npc\koopa_green.txt	4	1328	288	green
+
 #Tail
 197	assets\data\player\tail.txt	2	0	0
+
+#Item
+#Coin
+205	assets\data\item\coin.txt	5	1072	320
+205	assets\data\item\coin.txt	5	1104	288
+205	assets\data\item\coin.txt	5	1136	256
+205	assets\data\item\coin.txt	5	1168	224
+205	assets\data\item\coin.txt	5	1200	192
 
 #Animated block
 #Question block
@@ -63,6 +77,9 @@
 300	assets\data\block\questionblock.txt	0	192	352	205	assets\data\item\coin.txt	5
 300	assets\data\block\questionblock.txt	0	224	304	205	assets\data\item\coin.txt	5
 300	assets\data\block\questionblock.txt	0	240	304	200	assets\data\item\shroom_red.txt	5	202	assets\data\item\leaf.txt	5
+300	assets\data\block\questionblock.txt	0	416	320	205	assets\data\item\coin.txt	5
+300	assets\data\block\questionblock.txt	0	656	384	200	assets\data\item\shroom_red.txt	5	202	assets\data\item\leaf.txt	5
+300	assets\data\block\questionblock.txt	0	704	352	205	assets\data\item\coin.txt	5
 
 #Mask tile
 555	assets\data\mask\greenpipe_long.txt	8	360	384
@@ -531,4 +548,43 @@ assets\data\hud\hud.txt	3
 221	119	237	135	576	352
 221	119	237	135	576	368
 
+#Small bush 1 48x16
+85	85	101	101	160	400
+85	85	101	101	176	400
+85	85	101	101	192	400
+
+#Small bush 96x16
+85	85	101	101	672	384
+85	85	101	101	688	384
+85	85	101	101	704	384
+85	85	101	101	720	384
+85	85	101	101	736	384
+85	85	101	101	752	384
+
+#Tall bush 1
+51	68	67	84	16	368
+51	68	67	84	32	352
+51	68	67	84	64	368
+51	68	67	84	96	368
+68	68	84	84	48	352
+68	68	84	84	80	368
+68	68	84	84	112	368
+68	68	84	84	128	384
+51	85	67	101	16	384
+51	85	67	101	16	400
+51	85	67	101	96	384
+68	85	84	101	48	368
+68	85	84	101	80	384
+68	85	84	101	128	400
+51	102	67	118	32	384
+51	102	67	118	80	400
+51	102	67	118	112	384
+68	102	84	118	32	368
+68	102	84	118	48	384
+68	102	84	118	96	400
+85	68	101	84	32	400
+85	68	101	84	48	400
+85	68	101	84	64	400
+85	68	101	84	64	384
+85	68	101	84	112	400
 [/]
