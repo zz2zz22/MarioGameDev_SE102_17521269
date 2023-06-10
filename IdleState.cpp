@@ -12,6 +12,7 @@
 IdleState::IdleState(Player* player) : PlayerState(player) {}
 
 PlayerState* IdleState::HandleStates() {
+	//Idle state of multiple form
 	if (_player->isInMap) {
 		return new MapState(_player);
 	}
@@ -131,7 +132,7 @@ void IdleState::Render() {
 			);
 		}
 		else if (_player->_heldEntity != nullptr) {
-			_player->_animatedSprite.PlaySpriteAnimation("RacHoldJump", {
+			_player->_animatedSprite.PlaySpriteAnimation("RacHoldIdle", {
 				_player->_position.x - RAC_OFFSET * _player->_normal.x,
 				_player->_position.y
 				},
@@ -140,7 +141,7 @@ void IdleState::Render() {
 			);
 		}
 		else {
-			_player->_animatedSprite.PlaySpriteAnimation("RacFall", {
+			_player->_animatedSprite.PlaySpriteAnimation("RacIdle", {
 				_player->_position.x - RAC_OFFSET * _player->_normal.x,
 				_player->_position.y
 				},
