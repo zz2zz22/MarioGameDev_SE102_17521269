@@ -163,6 +163,7 @@
     <ClInclude Include="Parakoopa.h" />
     <ClInclude Include="PBlock.h" />
     <ClInclude Include="Pipeline.h" />
+    <ClInclude Include="PiranaPlant.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="QuestionBlock.h" />
@@ -210,6 +211,7 @@
     <ClCompile Include="Parakoopa.cpp" />
     <ClCompile Include="PBlock.cpp" />
     <ClCompile Include="Pipeline.cpp" />
+    <ClCompile Include="PiranaPlant.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="QuestionBlock.cpp" />
