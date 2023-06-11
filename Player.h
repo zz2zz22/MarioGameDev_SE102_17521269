@@ -20,7 +20,6 @@ private:
 	friend class ThrowState;
 	friend class WagState;
 	friend class HUD;
-	friend class ScorePopUp;
 
 	static Texture* _playerTexture;
 	static std::vector<GameObjectType> _bonusItems;

@@ -85,6 +85,7 @@ void Goomba::HandleCollisionResult(
 	case GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
 	case GameObjectType::GAMEOBJECT_TYPE_VENUSPLANT:
 	case GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
+	case GameObjectType::GAMEOBJECT_TYPE_PBLOCK:
 	case GameObjectType::GAMEOBJECT_TYPE_TILE:
 		if (eventNormal.x != 0.0f) {
 			_normal.x = -_normal.x;
@@ -104,8 +105,16 @@ void Goomba::HandleCollisionResult(
 		}
 		break;
 	case GameObjectType::GAMEOBJECT_TYPE_COIN:
-		//Is coin
+		//Is brick
 		if (eventEntity->GetHealth() == 3) {
+			if (eventNormal.x != 0.0f) {
+				_normal.x = -_normal.x;
+			}
+		}
+		break;
+	case GameObjectType::GAMEOBJECT_TYPE_SHINYBRICK:
+		//Is not coin
+		if (eventEntity->GetHealth() != 3) {
 			if (eventNormal.x != 0.0f) {
 				_normal.x = -_normal.x;
 			}
