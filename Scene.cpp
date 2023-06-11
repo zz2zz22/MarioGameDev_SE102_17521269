@@ -4,6 +4,15 @@
 #include "EntityList.h"
 
 bool Scene::_IsEntityInViewport(Entity* entity, RECTF viewport) const {
+	//Ignore the player and tail, door and ceiling
+	if (entity->GetObjectType() < GameObject::GameObjectType::GAMEOBJECT_TYPE_GOOMBA ||
+		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL ||
+		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_DOOR ||
+		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_MOVINGCEILING)
+	{
+		return  true;
+	}
+
 	float entityWidth = entity->GetPosition().x + entity->GetBoxWidth();
 	float entityHeight = entity->GetPosition().y + entity->GetBoxHeight();
 	if (entityWidth >= viewport.left &&
@@ -18,6 +27,15 @@ bool Scene::_IsEntityInViewport(Entity* entity, RECTF viewport) const {
 }
 
 bool Scene::_IsEntityAliveAndIB(Entity* entity) const {
+	//Ignore the player and tail, door and ceiling
+	if (entity->GetObjectType() < GameObject::GameObjectType::GAMEOBJECT_TYPE_GOOMBA ||
+		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL ||
+		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_DOOR ||
+		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_MOVINGCEILING)
+	{
+		return  true;
+	}
+
 	float entityWidth = entity->GetPosition().x + entity->GetBoxWidth();
 	float entityHeight = entity->GetPosition().y + entity->GetBoxHeight();
 	if (entity->GetHealth() > -1 &&
@@ -246,6 +264,12 @@ void Scene::_ParseEntityData(std::string line) {
 		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_LEAF:
 		entity = new Leaf;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_STAR:
+		entity = new Star;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_BONUSITEM:
+		entity = new BonusItem;
 		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
 		entity = new QuestionBlock;

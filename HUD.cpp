@@ -40,6 +40,20 @@ void HUD::_ParseItems() {
 	}
 
 	_items.clear();
+	for (const auto& item : playerItems) {
+		switch (item) {
+		case GameObject::GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
+			_items.emplace_back("CardShroom");
+			break;
+		case GameObject::GameObjectType::GAMEOBJECT_TYPE_FLOWER:
+			_items.emplace_back("CardFlower");
+			break;
+		case GameObject::GameObjectType::GAMEOBJECT_TYPE_STAR:
+			_items.emplace_back("CardStar");
+			break;
+		}
+	}
+
 }
 
 void HUD::_ParseSpeedGauge() {
@@ -112,6 +126,19 @@ void HUD::_ParseSceneEnd() {
 	std::vector<GameObject::GameObjectType> playerItems = _player->_bonusItems;
 	if (playerItems.empty()) {
 		return;
+	}
+
+	GameObject::GameObjectType lastItem = playerItems.back();
+	switch (lastItem) {
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
+		_animationName = "CardShroom";
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_FLOWER:
+		_animationName = "CardFlower";
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_STAR:
+		_animationName = "CardStar";
+		break;
 	}
 }
 

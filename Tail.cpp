@@ -90,7 +90,7 @@ void Tail::Update(
 }
 
 void Tail::Render() {
-	//_animatedSprite.PlaySpriteAnimation("Tail", _position);
+	_animatedSprite.PlaySpriteAnimation("Tail", _position);
 
 	if (_touchedEntity != nullptr) {
 		_animatedSprite.PlaySpriteAnimation("Spark", _touchedEntity->GetPosition());

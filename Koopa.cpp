@@ -141,6 +141,19 @@ void Koopa::HandleCollisionResult(
 		}
 	}
 	break;
+	case GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
+	{
+		PiranaPlant* piranaPlant = dynamic_cast<PiranaPlant*>(eventEntity);
+		if (_state == _State::SPIN) {
+			piranaPlant->TakeDamage();
+		}
+		else {
+			if (eventNormal.x != 0.0f) {
+				_normal.x = -_normal.x;
+			}
+		}
+	}
+	break;
 	case GameObjectType::GAMEOBJECT_TYPE_COIN:
 	{
 		Coin* coin = dynamic_cast<Coin*>(eventEntity);
@@ -227,6 +240,10 @@ void Koopa::HandleCollisionResult(
 					_normal.x = 1.0f;
 				}
 			}
+		}
+
+		if (eventNormal.x != 0.0f) {
+			_normal.x = -_normal.x;
 		}
 		break;
 	}

@@ -85,29 +85,73 @@ void Fireball::HandleCollisionResult(
 		switch (eventEntity->GetObjectType()) {
 		case GameObjectType::GAMEOBJECT_TYPE_GOOMBA:
 		case GameObjectType::GAMEOBJECT_TYPE_PARAGOOMBA:
+		case GameObjectType::GAMEOBJECT_TYPE_KOOPA:
+		case GameObjectType::GAMEOBJECT_TYPE_PARAKOOPA:
 			eventEntity->SetHealth(0);
 			eventEntity->SetScale({ 1.0f, -1.0f });
 			eventEntity->SetVelocity({ 0.0f, -_bounceSpeed });
 			break;
+		case GameObjectType::GAMEOBJECT_TYPE_COIN:
+		{
+			Coin* coin = dynamic_cast<Coin*>(eventEntity);
+			if (coin->GetHealth() == 3 && eventNormal.x != 0.0f) {
+				coin->SetHealth(-1);
+				TakeDamage();
+			}
 		}
-	case GameObjectType::GAMEOBJECT_TYPE_COIN:
-	{
-		Coin* coin = dynamic_cast<Coin*>(eventEntity);
-		if (coin->GetHealth() == 3 && eventNormal.x != 0.0f) {
-			coin->SetHealth(-1);
+		break;
+		case GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
+		{
+			QuestionBlock* questionBlock = dynamic_cast<QuestionBlock*>(eventEntity);
+			if (eventNormal.x != 0.0f) {
+				questionBlock->TakeDamage();
+				TakeDamage();
+			}
+		}
+		break;
+		case GameObjectType::GAMEOBJECT_TYPE_SHINYBRICK:
+		{
+			ShinyBrick* shinyBrick = dynamic_cast<ShinyBrick*>(eventEntity);
+			if (eventNormal.x != 0.0f) {
+				//Has items
+				if (shinyBrick->GetExtraData().size() != 3) {
+					shinyBrick->TakeDamage();
+				}
+				//Is empty
+				else if (shinyBrick->GetHealth() != 3 && shinyBrick->GetExtraData().size() == 3) {
+					shinyBrick->SetHealth(-1);
+				}
+				TakeDamage();
+			}
+		}
+		break;
+		case GameObjectType::GAMEOBJECT_TYPE_PBLOCK:
+		{
+			PBlock* pBlock = dynamic_cast<PBlock*>(eventEntity);
+			if (eventNormal.x != 0.0f) {
+				pBlock->TakeDamage();
+				TakeDamage();
+			}
+		}
+		break;
+		case GameObjectType::GAMEOBJECT_TYPE_TILE:
+			if (eventNormal.x != 0.0f) {
+				TakeDamage();
+			}
+			break;
+			//Ignore these entities
+		case GameObjectType::GAMEOBJECT_TYPE_MARIO:
+		case GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
+		case GameObjectType::GAMEOBJECT_TYPE_GREENMUSHROOM:
+		case GameObjectType::GAMEOBJECT_TYPE_FLOWER:
+		case GameObjectType::GAMEOBJECT_TYPE_STAR:
+		case GameObjectType::GAMEOBJECT_TYPE_BONUSITEM:
+			break;
+		default:
+			eventEntity->TakeDamage();
 			TakeDamage();
 		}
-	}
-	break;
-	case GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
-	{
-		QuestionBlock* questionBlock = dynamic_cast<QuestionBlock*>(eventEntity);
-		if (eventNormal.x != 0.0f) {
-			questionBlock->TakeDamage();
-			TakeDamage();
-		}
-	}
-	break;
+		break;
 	}
 }
 
