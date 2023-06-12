@@ -43,6 +43,11 @@ void Tail::HandleOverlap(Entity* entity) {
 	//Handle objects collision event with tail object when player hit attack button in raccoon form
 	switch (entity->GetObjectType()) {
 	case GameObjectType::GAMEOBJECT_TYPE_GOOMBA:
+	case GameObjectType::GAMEOBJECT_TYPE_PARAGOOMBA:
+	case GameObjectType::GAMEOBJECT_TYPE_KOOPA:
+	case GameObjectType::GAMEOBJECT_TYPE_PARAKOOPA:
+	case GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
+	case GameObjectType::GAMEOBJECT_TYPE_VENUSPLANT:
 		_touchedEntity = entity;
 		break;
 	}
@@ -58,6 +63,23 @@ void Tail::HandleOverlap(Entity* entity) {
 		goomba->SetVelocity({ 0.0f, -_bounceSpeed });
 	}
 	break;
+	case GameObjectType::GAMEOBJECT_TYPE_KOOPA:
+	case GameObjectType::GAMEOBJECT_TYPE_PARAKOOPA:
+	{
+		Koopa* koopa = dynamic_cast<Koopa*>(entity);
+		koopa->SetHealth(2);
+		koopa->StartRetractTimer();
+		koopa->SetScale({ 1.0f, -1.0f });
+		koopa->SetVelocity({ 0.0f, -_bounceSpeed });
+	}
+	break;
+	case GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
+	case GameObjectType::GAMEOBJECT_TYPE_VENUSPLANT:
+	{
+		PiranaPlant* piranaPlant = dynamic_cast<PiranaPlant*>(entity);
+		piranaPlant->TakeDamage();
+	}
+	break;
 	case GameObjectType::GAMEOBJECT_TYPE_COIN:
 	{
 		Coin* coin = dynamic_cast<Coin*>(entity);
@@ -71,6 +93,25 @@ void Tail::HandleOverlap(Entity* entity) {
 	{
 		QuestionBlock* questionBlock = dynamic_cast<QuestionBlock*>(entity);
 		questionBlock->TakeDamage();
+	}
+	break;
+	case GameObjectType::GAMEOBJECT_TYPE_SHINYBRICK:
+	{
+		ShinyBrick* shinyBrick = dynamic_cast<ShinyBrick*>(entity);
+		//Has items
+		if (shinyBrick->GetExtraData().size() != 3) {
+			shinyBrick->TakeDamage();
+		}
+		//Is empty
+		else if (shinyBrick->GetHealth() != 3 && shinyBrick->GetExtraData().size() == 3) {
+			shinyBrick->SetHealth(-1);
+		}
+	}
+	break;
+	case GameObjectType::GAMEOBJECT_TYPE_PBLOCK:
+	{
+		PBlock* pBlock = dynamic_cast<PBlock*>(entity);
+		pBlock->TakeDamage();
 	}
 	break;
 	}
@@ -90,7 +131,7 @@ void Tail::Update(
 }
 
 void Tail::Render() {
-	_animatedSprite.PlaySpriteAnimation("Tail", _position);
+	//_animatedSprite.PlaySpriteAnimation("Tail", _position);
 
 	if (_touchedEntity != nullptr) {
 		_animatedSprite.PlaySpriteAnimation("Spark", _touchedEntity->GetPosition());
