@@ -2,6 +2,8 @@
 #include "Goomba.h"
 #include "Paragoomba.h"
 #include "Koopa.h"
+#include "Parakoopa.h"
+#include "PiranaPlant.h"
 
 #include "Fireball.h"
 
@@ -12,6 +14,7 @@
 #include "Flower.h"
 #include "Star.h"
 #include "Coin.h"
+#include "BonusItem.h"
 
 #include "QuestionBlock.h"
 #include "ShinyBrick.h"

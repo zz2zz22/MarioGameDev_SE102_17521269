@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="AnimatedSprite.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="BonusItem.h" />
     <ClInclude Include="BrickDebris.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Coin.h" />
@@ -159,8 +160,10 @@
     <ClInclude Include="MaskTile.h" />
     <ClInclude Include="Mushroom.h" />
     <ClInclude Include="Paragoomba.h" />
+    <ClInclude Include="Parakoopa.h" />
     <ClInclude Include="PBlock.h" />
     <ClInclude Include="Pipeline.h" />
+    <ClInclude Include="PiranaPlant.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="QuestionBlock.h" />
@@ -179,6 +182,7 @@
   <ItemGroup>
     <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BonusItem.cpp" />
     <ClCompile Include="BrickDebris.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Coin.cpp" />
@@ -204,8 +208,10 @@
     <ClCompile Include="MaskTile.cpp" />
     <ClCompile Include="Mushroom.cpp" />
     <ClCompile Include="Paragoomba.cpp" />
+    <ClCompile Include="Parakoopa.cpp" />
     <ClCompile Include="PBlock.cpp" />
     <ClCompile Include="Pipeline.cpp" />
+    <ClCompile Include="PiranaPlant.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="QuestionBlock.cpp" />

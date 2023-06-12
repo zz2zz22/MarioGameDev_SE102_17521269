@@ -184,6 +184,42 @@ void ScenePlay::Update(DWORD deltaTime) {
 				}
 			}
 			break;
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_KOOPA:
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_PARAKOOPA:
+			{
+				Koopa* koopa = dynamic_cast<Koopa*>(entity);
+				if (koopa->GetHealth() == 2) {
+					//Mario is on the right side
+					if (koopa->GetPosition().x - _player->GetPosition().x < 0.0f) {
+						koopa->SetNormal({ -1.0f, 0.0f });
+					}
+					else {
+						koopa->SetNormal({ 1.0f, 0.0f });
+					}
+				}
+			}
+			break;
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
+			{
+				PiranaPlant* piranaPlant = dynamic_cast<PiranaPlant*>(entity);
+				piranaPlant->ComparePlayerPosToSelf(_player->GetPosition());
+				//Mario is on the right side
+				if (piranaPlant->GetPosition().x - _player->GetPosition().x < 0.0f) {
+					piranaPlant->SetScale({ -1.0f, piranaPlant->GetScale().y });
+				}
+				else {
+					piranaPlant->SetScale({ 1.0f, piranaPlant->GetScale().y });
+				}
+
+				//Mario is below
+				if (piranaPlant->GetPosition().y - _player->GetPosition().y < 0.0f) {
+					piranaPlant->SetNormal({ -1.0f, piranaPlant->GetNormal().y });
+				}
+				else {
+					piranaPlant->SetNormal({ 1.0f, piranaPlant->GetNormal().y });
+				}
+			}
+			break;
 			case GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL:
 			{
 				const float OFFSET = 4.0f;
@@ -215,6 +251,52 @@ void ScenePlay::Update(DWORD deltaTime) {
 				QuestionBlock* questionBlock = dynamic_cast<QuestionBlock*>(entity);
 				if (questionBlock->tookDamage) {
 					AddEntityToScene(questionBlock->SpawnItem(_player->GetHealth()));
+				}
+			}
+			break;
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_SHINYBRICK:
+			{
+				ShinyBrick* shinyBrick = dynamic_cast<ShinyBrick*>(entity);
+				if (shinyBrick->tookDamage) {
+					AddEntityToScene(shinyBrick->SpawnItem());
+				}
+				else if (shinyBrick->GetHealth() == -1) {
+					const float BOUNCE_SPEED_0 = 0.28f;
+					const float BOUNCE_SPEED_1 = 0.18f;
+					const float RUN_SPEED = 0.08f;
+					const float OFFSET = 10.0f;
+
+					//Top left
+					auto debris = shinyBrick->SpawnDebris();
+					debris->SetVelocity({ -RUN_SPEED, -BOUNCE_SPEED_0 });
+					AddEntityToScene(debris);
+					//Top right
+					debris = shinyBrick->SpawnDebris();
+					debris->SetScale({ -1.0f, 1.0f });
+					debris->SetVelocity({ RUN_SPEED, -BOUNCE_SPEED_0 });
+					AddEntityToScene(debris);
+					//Bottom left
+					debris = shinyBrick->SpawnDebris();
+					debris->SetVelocity({ -RUN_SPEED, -BOUNCE_SPEED_1 });
+					debris->SetPosition({ debris->GetPosition().x, debris->GetPosition().y + OFFSET });
+					AddEntityToScene(debris);
+					//Bottom right
+					debris = shinyBrick->SpawnDebris();
+					debris->SetScale({ -1.0f, 1.0f });
+					debris->SetVelocity({ RUN_SPEED, -BOUNCE_SPEED_1 });
+					debris->SetPosition({ debris->GetPosition().x, debris->GetPosition().y + OFFSET });
+					AddEntityToScene(debris);
+				}
+			}
+			break;
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_PBLOCK:
+			{
+				PBlock* pBlock = dynamic_cast<PBlock*>(entity);
+				if (pBlock->IsActivated() && pBlock->tookDamage) {
+					//Stub
+				}
+				else if (pBlock->hasEnded) {
+					pBlock->hasEnded = false;
 				}
 			}
 			break;
@@ -290,12 +372,10 @@ void ScenePlay::Release() {
 	sprintf_s(debug, "[SCENE] Unloading scene with ID: %d\n", _sceneID);
 	OutputDebugStringA(debug);
 
-	if (_background != nullptr)
-		_background->Release();
+	_background->Release();
 	delete _background;
 
-	if (_hud != nullptr)
-		_hud->Release();
+	_hud->Release();
 	delete _hud;
 
 	if (_grid != nullptr) {

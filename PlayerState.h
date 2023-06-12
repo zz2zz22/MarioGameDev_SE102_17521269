@@ -10,12 +10,6 @@ protected:
 		BIG = 2,
 		FIRE = 3,
 		RACCOON = 4,
-
-		Trickster,
-		Swordmaster,
-		Gunslinger,
-		RoyalGuard,
-		I_AM_THE_STORM_THAT_IS_APPROACHING
 	};
 
 	static Player* _player;

@@ -58,6 +58,8 @@ void Camera::AddCameraBound(RECTF cameraBound) {
 }
 
 void Camera::Update(DWORD deltaTime, std::vector<GameObject*>* collidableObjects) {
+	_position.y = 15.0f;
+	_velocity.x = 0.035f;
 	GameObject::Update(deltaTime);
 	_position += _distance;
 }

@@ -42,9 +42,7 @@ void SceneManager::ParseScenes(std::string line) {
 }
 
 void SceneManager::ChangeScene(unsigned int sceneID) {
-	_scenes[_currentSceneID]->Release();
-	_currentSceneID = sceneID;
-	_scenes[_currentSceneID]->LoadScene();
+		_scenes[_currentSceneID]->LoadScene();
 }
 
 void SceneManager::Release() {
