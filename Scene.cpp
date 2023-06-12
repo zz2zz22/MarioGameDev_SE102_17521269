@@ -4,7 +4,7 @@
 #include "EntityList.h"
 
 bool Scene::_IsEntityInViewport(Entity* entity, RECTF viewport) const {
-	//Ignore the player and tail, door and ceiling
+	//Ignore the player and tail
 	if (entity->GetObjectType() < GameObject::GameObjectType::GAMEOBJECT_TYPE_GOOMBA ||
 		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL)
 	{
@@ -25,7 +25,7 @@ bool Scene::_IsEntityInViewport(Entity* entity, RECTF viewport) const {
 }
 
 bool Scene::_IsEntityAliveAndIB(Entity* entity) const {
-	//Ignore the player and tail, door and ceiling
+	//Ignore the player and tail
 	if (entity->GetObjectType() < GameObject::GameObjectType::GAMEOBJECT_TYPE_GOOMBA ||
 		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL)
 	{
@@ -249,11 +249,11 @@ void Scene::_ParseEntityData(std::string line) {
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
 		entity = new PiranaPlant;
 		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_VENUSPLANT:
+		entity = new VenusPlant;
+		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL:
 		entity = new Tail;
-		break;
-	case GameObject::GameObjectType::GAMEOBJECT_TYPE_COIN:
-		entity = new Coin;
 		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
 		entity = new Mushroom;
@@ -263,6 +263,9 @@ void Scene::_ParseEntityData(std::string line) {
 		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_STAR:
 		entity = new Star;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_COIN:
+		entity = new Coin;
 		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_BONUSITEM:
 		entity = new BonusItem;
