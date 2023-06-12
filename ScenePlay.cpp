@@ -372,11 +372,9 @@ void ScenePlay::Release() {
 	sprintf_s(debug, "[SCENE] Unloading scene with ID: %d\n", _sceneID);
 	OutputDebugStringA(debug);
 
-	if (_background != nullptr)
 	_background->Release();
 	delete _background;
 
-	if (_hud != nullptr)
 	_hud->Release();
 	delete _hud;
 

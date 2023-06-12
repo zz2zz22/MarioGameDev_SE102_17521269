@@ -76,10 +76,6 @@
 300	assets\data\block\questionblock.txt	0	176	352	205	assets\data\item\coin.txt	5
 300	assets\data\block\questionblock.txt	0	192	352	205	assets\data\item\coin.txt	5
 300	assets\data\block\questionblock.txt	0	224	304	205	assets\data\item\coin.txt	5
-300	assets\data\block\questionblock.txt	0	240	304	200	assets\data\item\shroom_red.txt	5	202	assets\data\item\leaf.txt	5
-300	assets\data\block\questionblock.txt	0	416	320	205	assets\data\item\coin.txt	5
-300	assets\data\block\questionblock.txt	0	656	384	200	assets\data\item\shroom_red.txt	5	202	assets\data\item\leaf.txt	5
-300	assets\data\block\questionblock.txt	0	704	352	205	assets\data\item\coin.txt	5
 
 #Mask tile
 555	assets\data\mask\greenpipe_long.txt	8	360	384
@@ -552,7 +548,14 @@ assets\data\hud\hud.txt	3
 85	85	101	101	160	400
 85	85	101	101	176	400
 85	85	101	101	192	400
-
+#Small bush 2 48x16
+85	85	101	101	1184	400
+85	85	101	101	1200	400
+85	85	101	101	1216	400
+#Small bush 3 48x16
+85	85	101	101	1728	400
+85	85	101	101	1744	400
+85	85	101	101	1760	400
 #Small bush 96x16
 85	85	101	101	672	384
 85	85	101	101	688	384
@@ -560,6 +563,9 @@ assets\data\hud\hud.txt	3
 85	85	101	101	720	384
 85	85	101	101	736	384
 85	85	101	101	752	384
+#Small bush 32x16
+85	85	101	101	1040	384
+85	85	101	101	1056	384
 
 #Tall bush 1
 51	68	67	84	16	368
@@ -587,4 +593,39 @@ assets\data\hud\hud.txt	3
 85	68	101	84	64	400
 85	68	101	84	64	384
 85	68	101	84	112	400
+#Tall bush 2
+51	68	67	84	816	384
+51	68	67	84	832	352
+51	68	67	84	864	352
+51	68	67	84	880	336
+51	68	67	84	912	352
+68	68	84	84	848	352
+68	68	84	84	896	336
+68	68	84	84	928	352
+51	85	67	101	832	368
+68	85	84	101	928	368
+68	85	84	101	928	384
+68	85	84	101	896	352
+51	102	67	118	848	368
+51	102	67	118	880	368
+68	102	84	118	832	384
+68	102	84	118	864	368
+68	102	84	118	880	352
+68	102	84	118	896	368
+85	68	101	84	848	384
+85	68	101	84	864	384
+85	68	101	84	880	384
+85	68	101	84	896	384
+85	68	101	84	912	384
+85	68	101	84	912	368
+#Tall bush 3
+51	68	67	84	944	384
+51	68	67	84	960	352
+68	68	84	84	976	352
+68	68	84	84	992	368
+51	85	67	101	960	368
+68	85	84	101	992	384
+51	102	67	118	976	368
+68	102	84	118	960	384
+85	68	101	84	976	384
 [/]

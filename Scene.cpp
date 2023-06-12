@@ -6,9 +6,7 @@
 bool Scene::_IsEntityInViewport(Entity* entity, RECTF viewport) const {
 	//Ignore the player and tail, door and ceiling
 	if (entity->GetObjectType() < GameObject::GameObjectType::GAMEOBJECT_TYPE_GOOMBA ||
-		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL ||
-		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_DOOR ||
-		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_MOVINGCEILING)
+		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL)
 	{
 		return  true;
 	}
@@ -29,9 +27,7 @@ bool Scene::_IsEntityInViewport(Entity* entity, RECTF viewport) const {
 bool Scene::_IsEntityAliveAndIB(Entity* entity) const {
 	//Ignore the player and tail, door and ceiling
 	if (entity->GetObjectType() < GameObject::GameObjectType::GAMEOBJECT_TYPE_GOOMBA ||
-		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL ||
-		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_DOOR ||
-		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_MOVINGCEILING)
+		entity->GetObjectType() == GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL)
 	{
 		return  true;
 	}
