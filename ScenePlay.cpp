@@ -200,6 +200,7 @@ void ScenePlay::Update(DWORD deltaTime) {
 			}
 			break;
 			case GameObject::GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_VENUSPLANT:
 			{
 				PiranaPlant* piranaPlant = dynamic_cast<PiranaPlant*>(entity);
 				piranaPlant->ComparePlayerPosToSelf(_player->GetPosition());
@@ -300,6 +301,10 @@ void ScenePlay::Update(DWORD deltaTime) {
 				}
 			}
 			break;
+			}
+
+			if (entity->tookDamage) {
+				entity->tookDamage = false;
 			}
 
 			if (_grid != nullptr) {
