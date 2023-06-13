@@ -9,7 +9,7 @@ void Mushroom::_ParseSprites(std::string line) {
 
 Mushroom::Mushroom() {
 	_renderPriority = 4;
-	_removeTime = 50;
+	_removeTime = 25;
 
 	_runSpeed = 0.06f;
 	_jumpSpeed = 0.018f;
