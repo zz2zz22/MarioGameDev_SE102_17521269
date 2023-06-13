@@ -177,6 +177,7 @@
     <ClInclude Include="Tail.h" />
     <ClInclude Include="ThrowState.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="VenusPlant.h" />
     <ClInclude Include="WagState.h" />
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +226,7 @@
     <ClCompile Include="Tail.cpp" />
     <ClCompile Include="ThrowState.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="VenusPlant.cpp" />
     <ClCompile Include="WagState.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

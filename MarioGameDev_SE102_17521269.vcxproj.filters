@@ -156,6 +156,9 @@
     <ClInclude Include="PiranaPlant.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="VenusPlant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameUtils.cpp">
@@ -294,6 +297,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PiranaPlant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VenusPlant.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

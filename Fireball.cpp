@@ -91,6 +91,9 @@ void Fireball::HandleCollisionResult(
 			eventEntity->SetScale({ 1.0f, -1.0f });
 			eventEntity->SetVelocity({ 0.0f, -_bounceSpeed });
 			break;
+		case GameObjectType::GAMEOBJECT_TYPE_VENUSFIREBALL:
+			TakeDamage();
+			break;
 		case GameObjectType::GAMEOBJECT_TYPE_COIN:
 		{
 			Coin* coin = dynamic_cast<Coin*>(eventEntity);
@@ -150,6 +153,16 @@ void Fireball::HandleCollisionResult(
 		default:
 			eventEntity->TakeDamage();
 			TakeDamage();
+		}
+		break;
+	case GameObjectType::GAMEOBJECT_TYPE_VENUSFIREBALL:
+		minTime = { 1.0f, 1.0f };
+		offset = normal = relativeDistance = { 0.0f, 0.0f };
+
+		switch (eventEntity->GetObjectType()) {
+		case GameObjectType::GAMEOBJECT_TYPE_PLAYERFIREBALL:
+			TakeDamage();
+			break;
 		}
 		break;
 	}

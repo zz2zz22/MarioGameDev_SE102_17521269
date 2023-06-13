@@ -200,6 +200,7 @@ void ScenePlay::Update(DWORD deltaTime) {
 			}
 			break;
 			case GameObject::GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
+			case GameObject::GameObjectType::GAMEOBJECT_TYPE_VENUSPLANT:
 			{
 				PiranaPlant* piranaPlant = dynamic_cast<PiranaPlant*>(entity);
 				piranaPlant->ComparePlayerPosToSelf(_player->GetPosition());
@@ -302,6 +303,10 @@ void ScenePlay::Update(DWORD deltaTime) {
 			break;
 			}
 
+			if (entity->tookDamage) {
+				entity->tookDamage = false;
+			}
+
 			if (_grid != nullptr) {
 				Cell* newCell = _grid->GetCell(entity->GetPosition());
 				if (newCell != entity->ownerCell) {
@@ -348,7 +353,6 @@ void ScenePlay::Update(DWORD deltaTime) {
 
 		if (IsTransitioningToScene() && GetTickCount64() - _toSceneStart > _toSceneTime) {
 			_toSceneStart = 0;
-			//SceneManager::GetInstance()->ChangeScene(static_cast<unsigned int>(SceneType::SCENE_TYPE_MAP));
 			ScenePlay::Release();
 			ScenePlay::LoadScene();
 		}
