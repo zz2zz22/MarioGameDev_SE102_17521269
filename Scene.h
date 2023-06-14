@@ -9,6 +9,8 @@
 #include "Player.h"
 #include "HUD.h"
 
+#include "ScorePopUp.h"
+
 #include <vector>
 #include <string>
 #include <fstream>
@@ -66,6 +68,7 @@ protected:
 	Camera* _cameraInstance;
 	Background* _background;
 	HUD* _hud;
+	ScorePopUp* _scorePopUp;
 
 	Player* _player;
 

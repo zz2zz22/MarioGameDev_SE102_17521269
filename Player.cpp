@@ -351,9 +351,12 @@ void Player::OnKeyDownGame(int keyCode) {
 		}
 		break;
 	case DIK_SPACE:
-		SlowFall();
-		RunFly();
-		Jump();
+		if (_health > 1 && !_isCrouching && !IsInPipe)
+		{
+			SlowFall();
+			RunFly();
+			Jump();
+		}
 		break;
 	}
 }
@@ -542,6 +545,7 @@ void Player::HandleCollisionResult(
 	}
 	break;
 	case GameObjectType::GAMEOBJECT_TYPE_PIRANHAPLANT:
+	case GameObjectType::GAMEOBJECT_TYPE_VENUSPLANT:
 	{
 		PiranaPlant* piranaPlant = dynamic_cast<PiranaPlant*>(eventEntity);
 		if (piranaPlant->GetHealth() >= 0) {
@@ -555,8 +559,19 @@ void Player::HandleCollisionResult(
 	//----------------------------------------------------------------------------
 
 	//----------------------------------------------------------------------------
-	//ITEMS
+	//PROJECTILES
 	//----------------------------------------------------------------------------
+	case GameObjectType::GAMEOBJECT_TYPE_VENUSFIREBALL:
+		TakeDamage();
+		break;
+
+		//----------------------------------------------------------------------------
+		//PROJECTILES
+		//----------------------------------------------------------------------------
+
+		//----------------------------------------------------------------------------
+		//ITEMS
+		//----------------------------------------------------------------------------
 	case GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
 	case GameObjectType::GAMEOBJECT_TYPE_GREENMUSHROOM:
 	{

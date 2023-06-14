@@ -171,6 +171,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ScenePlay.h" />
+    <ClInclude Include="ScorePopUp.h" />
     <ClInclude Include="ShinyBrick.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Star.h" />
@@ -220,6 +221,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ScenePlay.cpp" />
+    <ClCompile Include="ScorePopUp.cpp" />
     <ClCompile Include="ShinyBrick.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Star.cpp" />

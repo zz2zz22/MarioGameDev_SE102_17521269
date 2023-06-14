@@ -149,6 +149,7 @@ void Fireball::HandleCollisionResult(
 		case GameObjectType::GAMEOBJECT_TYPE_FLOWER:
 		case GameObjectType::GAMEOBJECT_TYPE_STAR:
 		case GameObjectType::GAMEOBJECT_TYPE_BONUSITEM:
+		case GameObjectType::GAMEOBJECT_TYPE_ONEWAYPLATFORM:
 			break;
 		default:
 			eventEntity->TakeDamage();
@@ -181,6 +182,10 @@ void Fireball::Update(
 
 	HandleStates();
 	Entity::Update(deltaTime, collidableEntities, collidableTiles, grid);
+
+	if (_objectType == GameObjectType::GAMEOBJECT_TYPE_VENUSFIREBALL) {
+		_velocity.y = -_travelSpeed * _normal.y * deltaTime;
+	}
 }
 
 void Fireball::Render() {
