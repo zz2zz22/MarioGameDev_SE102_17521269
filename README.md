@@ -1,5 +1,8 @@
 <p align="center">
-  <h1 align="center">SCHOOL PROJECT - SUPER MARIO GAME DEVELOP</h1>
+  <h1 align="center">
+    --SCHOOL PROJECT--
+    GAME DEVELOP - SUPER MARIO BROS 3
+  </h1>
 </p>
 
 🎓 A solo school project on how to create a 2D platformer game.
@@ -47,3 +50,5 @@ Only do this if the project isn't running.
 ## Credits
 + [The Spriter Resources](https://www.spriters-resource.com/nes/supermariobros3/)
 + [nesmaps](https://nesmaps.com/maps/SuperMarioBrothers3/SuperMarioBrothers3.html)
++ [Game logic research](https://www.mariowiki.com)
++ [Framework tutorial](https://github.com/dungdna2000/gamedev-intro-tutorials)
