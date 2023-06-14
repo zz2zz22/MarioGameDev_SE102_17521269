@@ -351,7 +351,7 @@ void Player::OnKeyDownGame(int keyCode) {
 		}
 		break;
 	case DIK_SPACE:
-		if (!_isCrouching)
+		if (_health > 1 && !_isCrouching && !IsInPipe)
 		{
 			SlowFall();
 			RunFly();
