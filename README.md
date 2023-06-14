@@ -1,8 +1,5 @@
 <p align="center">
-  <h1 align="center">
-    --SCHOOL PROJECT--
-    GAME DEVELOP - SUPER MARIO BROS 3
-  </h1>
+  <h1 align="center">--SCHOOL PROJECT--<br/>GAME DEVELOP - SUPER MARIO BROS 3</h1>
 </p>
 
 🎓 A solo school project on how to create a 2D platformer game.
