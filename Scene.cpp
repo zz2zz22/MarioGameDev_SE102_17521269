@@ -335,6 +335,10 @@ void Scene::_ParseMainEffect(std::string line) {
 	GameObject::GameObjectType objectType = static_cast<GameObject::GameObjectType>(std::stoul(tokens.at(0)));
 	unsigned int textureID = std::stoul(tokens.at(2));
 	Texture* texture = GetTexture(textureID);
+
+	_scorePopUp = new ScorePopUp(_player);
+	_scorePopUp->SetOjectType(objectType);
+	_scorePopUp->ParseData(tokens.at(1), texture);
 }
 
 void Scene::_ParseHUD(std::string line) {
@@ -504,6 +508,7 @@ void Scene::LoadScene() {
 
 	_player = nullptr;
 
+	_scorePopUp = nullptr;
 	_hud = nullptr;
 	_background = nullptr;
 	_grid = nullptr;

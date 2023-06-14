@@ -304,6 +304,10 @@ void ScenePlay::Update(DWORD deltaTime) {
 			}
 
 			if (entity->tookDamage) {
+				_scorePopUp->GetEntity(entity);
+				_scorePopUp->SetPosition(entity->GetPosition());
+				_scorePopUp->StartFloatTimer();
+
 				entity->tookDamage = false;
 			}
 
@@ -329,6 +333,8 @@ void ScenePlay::Update(DWORD deltaTime) {
 	}
 
 	UpdateCameraPosition();
+
+	_scorePopUp->Update(deltaTime);
 
 	const float HUD_OFFSET_X = 134.0f;
 	const float HUD_OFFSET_Y = 161.0f;
@@ -368,6 +374,8 @@ void ScenePlay::Render() {
 			entity->Render();
 		}
 	}
+	_scorePopUp->Render();
+
 	_hud->Render();
 }
 
@@ -381,6 +389,9 @@ void ScenePlay::Release() {
 
 	_hud->Release();
 	delete _hud;
+
+	_scorePopUp->Release();
+	delete _scorePopUp;
 
 	if (_grid != nullptr) {
 		_grid->Release();

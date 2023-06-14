@@ -167,6 +167,7 @@ assets\data\hud\hud.txt	3
 
 #The effect that will be used for displaying points given to the player
 [MAINEFFECT]
+600	assets\data\effect\score.txt	6
 [/]
 
 [BACKGROUND]
