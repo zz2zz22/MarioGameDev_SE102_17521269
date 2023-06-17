@@ -7,10 +7,10 @@ Player* PlayerState::_player = nullptr;
 void PlayerState::_OnTransform() {
 	switch (_player->_health) {
 	case 1:
-		_player->_animatedSprite.PlaySpriteAnimation("ShrinkDown", { _player->_position.x, _player->_position.y - 8.0f }, _player->_scale);
+		_player->_animatedSprite.PlaySpriteAnimation("ShrinkDown", { _player->_position.x, _player->_position.y }, _player->_scale);
 		break;
 	case 2:
-		_player->_animatedSprite.PlaySpriteAnimation("GrowUp", { _player->_position.x, _player->_position.y - 8.0f }, _player->_scale);
+		_player->_animatedSprite.PlaySpriteAnimation("GrowUp", { _player->_position.x, _player->_position.y  }, _player->_scale);
 		break;
 	case 3:
 	case 4:

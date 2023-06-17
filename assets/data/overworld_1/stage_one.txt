@@ -63,8 +63,11 @@
 103	assets\data\npc\koopa_green.txt	4	1376	288	green
 103	assets\data\npc\koopa_green.txt	4	1424	288	green
 
+#Pirana plant
+104	assets\data\npc\piranaplant_green.txt	4	1800	406
 #Venus plant
 105	assets\data\npc\venusplant_red.txt	4	360	383	108	assets\data\projectile\fireball.txt	7
+105	assets\data\npc\venusplant_green.txt	4	1864	390	108	assets\data\projectile\fireball.txt	7
 
 #Tail
 197	assets\data\player\tail.txt	2	0	0
@@ -76,6 +79,24 @@
 205	assets\data\item\coin.txt	5	1136	256
 205	assets\data\item\coin.txt	5	1168	224
 205	assets\data\item\coin.txt	5	1200	192
+205	assets\data\item\coin.txt	5	1328	80
+205	assets\data\item\coin.txt	5	1344	80
+205	assets\data\item\coin.txt	5	1360	80
+205	assets\data\item\coin.txt	5	1472	112
+205	assets\data\item\coin.txt	5	1488	112
+205	assets\data\item\coin.txt	5	1536	128
+205	assets\data\item\coin.txt	5	1552	128
+205	assets\data\item\coin.txt	5	1568	128
+205	assets\data\item\coin.txt	5	1584	128
+205	assets\data\item\coin.txt	5	1616	112
+205	assets\data\item\coin.txt	5	1632	112
+205	assets\data\item\coin.txt	5	1648	112
+205	assets\data\item\coin.txt	5	1664	112
+205	assets\data\item\coin.txt	5	1696	144
+205	assets\data\item\coin.txt	5	1728	112
+205	assets\data\item\coin.txt	5	1760	128
+205	assets\data\item\coin.txt	5	1808	96
+205	assets\data\item\coin.txt	5	1840	128
 
 #Animated block
 #Question block
@@ -140,6 +161,8 @@
 999	1296	352	112	64
 #One way pink block 4 64x32
 999	1312	144	64	999
+#One way pink block 5 48x48
+999	2144	368	48	48
 
 #One way blue block 1 48x80
 999	272	336	48	80
@@ -155,6 +178,11 @@
 
 #One way white block 64x112
 999	512	304	64	112
+
+#Cloud block 64x16
+777	1408	192	64	16
+#Cloud block 208x16
+777	1488	176	208	16
 [/]
 
 [GRID]
@@ -509,6 +537,16 @@ assets\data\hud\hud.txt	3
 221	153	237	169	1328	176
 221	153	237	169	1344	176
 221	153	237	169	1360	176
+#One way pink block 5 48x48
+0	119	16	135	2144	368
+17	119	33	135	2160	368
+34	119	50	135	2176	368
+0	136	16	152	2144	384
+17	136	33	152	2160	384
+34	136	50	152	2176	384
+0	153	16	169	2144	400
+17	153	33	169	2160	400
+34	153	50	169	2176	400
 
 #One way blue block 1 48x80
 51	119	67	135	272	336
@@ -653,6 +691,27 @@ assets\data\hud\hud.txt	3
 221	119	237	135	576	336
 221	119	237	135	576	352
 221	119	237	135	576	368
+
+#Cloud block 64x16
+187	0	203	16	1408	192
+187	0	203	16	1424	192	
+187	0	203	16	1440	192
+187	0	203	16	1456	192
+#Cloud block 208x16
+187	0	203	16	1488	176
+187	0	203	16	1504	176
+187	0	203	16	1520	176
+187	0	203	16	1536	176
+187	0	203	16	1552	176
+187	0	203	16	1568	176
+187	0	203	16	1584	176
+187	0	203	16	1600	176
+187	0	203	16	1616	176
+187	0	203	16	1632	176
+187	0	203	16	1648	176
+187	0	203	16	1664	176
+187	0	203	16	1680	176
+
 
 #Small bush 1 48x16
 85	85	101	101	160	400
