@@ -166,6 +166,7 @@
     <ClInclude Include="PiranaPlant.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
+    <ClInclude Include="Portal.h" />
     <ClInclude Include="QuestionBlock.h" />
     <ClInclude Include="RunState.h" />
     <ClInclude Include="Scene.h" />
@@ -216,6 +217,7 @@
     <ClCompile Include="PiranaPlant.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />
+    <ClCompile Include="Portal.cpp" />
     <ClCompile Include="QuestionBlock.cpp" />
     <ClCompile Include="RunState.cpp" />
     <ClCompile Include="Scene.cpp" />
