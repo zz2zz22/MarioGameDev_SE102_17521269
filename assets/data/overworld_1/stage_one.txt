@@ -57,6 +57,7 @@
 #Koopa
 102	assets\data\npc\koopa_red.txt	4	576	352	red
 102	assets\data\npc\koopa_green.txt	4	1472	384	green
+102	assets\data\npc\koopa_red.txt	4	2096	352	red
 
 #Parakoopa
 103	assets\data\npc\koopa_green.txt	4	1328	288	green
@@ -71,6 +72,10 @@
 
 #Tail
 197	assets\data\player\tail.txt	2	0	0
+
+#Portal								#destination
+198	assets\data\npc\portal.txt	0	2264	108	2104	468
+198	assets\data\npc\portal.txt	0	2328	485	2328	396
 
 #Item
 #Coin
@@ -98,6 +103,9 @@
 205	assets\data\item\coin.txt	5	1808	96
 205	assets\data\item\coin.txt	5	1840	128
 
+#Bonus item
+206	assets\data\item\bonusitem.txt	5	2683	331
+
 #Animated block
 #Question block
 300	assets\data\block\questionblock.txt	0	176	352	205	assets\data\item\coin.txt	5
@@ -108,6 +116,29 @@
 300	assets\data\block\questionblock.txt	0	656	384	200	assets\data\item\shroom_red.txt	5	202	assets\data\item\leaf.txt	5
 300	assets\data\block\questionblock.txt	0	704	352	205	assets\data\item\coin.txt	5
 300	assets\data\block\questionblock.txt	0	1472	368	200	assets\data\item\shroom_red.txt	5	202	assets\data\item\leaf.txt	5
+
+#Shiny brick															quantity
+301	assets\data\block\brickblock.txt	0	1440	128	601	assets\data\effect\brick.txt	6	201	assets\data\item\shroom_green.txt	5	1
+301	assets\data\block\brickblock.txt	0	2032	368	601	assets\data\effect\brick.txt	6	302	assets\data\block\pblock.txt	0	1
+
+301	assets\data\block\brickblock.txt	0	1984	368	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	2000	368	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	2016	368	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	1968	384	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	1984	384	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	2000	384	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	2016	384	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	2032	384	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	2096	384	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	1952	400	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	1968	400	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	1984	400	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	2000	400	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	2016	400	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	2032	400	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	2048	400	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	2096	400	601	assets\data\effect\brick.txt	6
+301	assets\data\block\brickblock.txt	0	2112	400	601	assets\data\effect\brick.txt	6
 
 #Mask tile
 555	assets\data\mask\greenpipe_long.txt	8	360	384
@@ -175,6 +206,8 @@
 999	512	384	96	32
 #One way green block 3 112x32
 999	1264	384	112	32
+#One way green block 4 48x144
+999	2176	272	48	144
 
 #One way white block 64x112
 999	512	304	64	112
@@ -663,6 +696,46 @@ assets\data\hud\hud.txt	3
 221	102	237	118	1376	384
 221	119	237	135	1376	400
 
+#One way green block 4 48x144
+102	119	118	135	2176	272
+119	119	135	135	2192	272
+136	119	152	135	2208	272
+102	136	118	152	2176	288
+102	136	118	152	2176	304
+102	136	118	152	2176	320
+102	136	118	152	2176	336
+102	136	118	152	2176	352
+119	136	135	152	2192	288
+119	136	135	152	2192	304
+119	136	135	152	2192	320
+119	136	135	152	2192	336
+119	136	135	152	2192	352
+119	136	135	152	2192	368
+119	136	135	152	2192	384
+136	136	152	152	2208	288
+136	136	152	152	2208	304
+136	136	152	152	2208	320
+136	136	152	152	2208	336
+136	136	152	152	2208	352
+136	136	152	152	2208	368
+136	136	152	152	2208	384
+119	153	135	169	2192	400
+136	153	152	169	2208	400
+#Shadow
+221	102	237	118	2192	368
+221	119	237	135	2192	384
+221	119	237	135	2192	400
+
+221	102	237	118	2224	272
+221	119	237	135	2224	288
+221	119	237	135	2224	304
+221	119	237	135	2224	320
+221	119	237	135	2224	336
+221	119	237	135	2224	352
+221	119	237	135	2224	368
+221	119	237	135	2224	384
+221	119	237	135	2224	400
+
 #One way white block 64x112
 153	119	169	135	512	304
 170	119	186	135	528	304
@@ -797,4 +870,7 @@ assets\data\hud\hud.txt	3
 51	102	67	118	976	368
 68	102	84	118	960	384
 85	68	101	84	976	384
+
+#Bonus item
+102	34	128	60	2683	331
 [/]
