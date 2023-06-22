@@ -461,6 +461,7 @@ void Player::HandleCollisionResult(
 	}
 
 	switch (eventEntity->GetObjectType()) {
+	case GameObjectType::GAMEOBJECT_TYPE_PORTAL:
 	case GameObjectType::GAMEOBJECT_TYPE_QUESTIONBLOCK:
 	case GameObjectType::GAMEOBJECT_TYPE_TILE:
 	case GameObjectType::GAMEOBJECT_TYPE_ONEWAYPLATFORM:
@@ -568,6 +569,38 @@ void Player::HandleCollisionResult(
 		//----------------------------------------------------------------------------
 		//PROJECTILES
 		//----------------------------------------------------------------------------
+
+	//----------------------------------------------------------------------------
+	//SPECIAL ENTITIES
+	//----------------------------------------------------------------------------
+	case GameObjectType::GAMEOBJECT_TYPE_PORTAL:
+	{
+		Portal* portal = dynamic_cast<Portal*>(eventEntity);
+		if (portal->GetExtraData().size() == 1) {
+			_nextSceneID = portal->GetSceneID();
+			_mapNodePos = portal->GetPosition();
+		}
+		else {
+			if (Device::IsKeyDown(DIK_DOWNARROW) || Device::IsKeyDown(DIK_UPARROW)) {
+				if (eventNormal.y == 1.0f && Device::IsKeyDown(DIK_UPARROW)) {
+					_normal.y = -1.0f;
+				}
+				else if (eventNormal.y == -1.0f && Device::IsKeyDown(DIK_DOWNARROW)) {
+					_normal.y = 1.0f;
+				}
+
+				if (!IsInPipe()) {
+					StartInPipeTimer();
+					_destination = portal->GetDestination();
+				}
+			}
+		}
+	}
+	break;
+	//----------------------------------------------------------------------------
+	//SPECIAL ENTITIES
+	//----------------------------------------------------------------------------
+
 
 		//----------------------------------------------------------------------------
 		//ITEMS
