@@ -32,12 +32,12 @@ Only do this if the project isn't running.
 |Constraint |Key            |Action                  |
 |-----------|---------------|------------------------|
 |Global     |<kbd>Esc</kbd> |Exit application        |
-|Stage only |<kbd>⬆</kbd>   |Enter pipe/door         |
-|           |<kbd>⬅</kbd>  |Move left               |
-|           |<kbd>⬇</kbd>   |Crouch/Enter pipe       |
-|           |<kbd>➡</kbd>  |Move right              |
-|           |<kbd>S</kbd>   |Throw/Attack/Hold shell |
-|           |<kbd>␣</kbd>   |Run/Fly/Jump/Float down |
+|Stage only |<kbd>W</kbd>   |Enter pipe/door         |
+|           |<kbd>A</kbd>  |Move left               |
+|           |<kbd>S</kbd>   |Crouch/Enter pipe       |
+|           |<kbd>D</kbd>  |Move right              |
+|           |<kbd>J</kbd>   |Throw/Attack/Hold shell |
+|           |<kbd>K</kbd>   |Run/Fly/Jump/Float down |
 |Debug only |<kbd>1</kbd>   |Set form to `SMALL`     |
 |           |<kbd>2</kbd>   |Set form to `BIG`       |
 |           |<kbd>3</kbd>   |Set form to `FIRE`      |
