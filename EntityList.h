@@ -17,6 +17,7 @@
 #include "Coin.h"
 #include "BonusItem.h"
 
+#include "Portal.h"
 #include "QuestionBlock.h"
 #include "ShinyBrick.h"
 #include "PBlock.h"

@@ -255,6 +255,9 @@ void Scene::_ParseEntityData(std::string line) {
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_TAIL:
 		entity = new Tail;
 		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_PORTAL:
+		entity = new Portal;
+		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_REDMUSHROOM:
 		entity = new Mushroom;
 		break;

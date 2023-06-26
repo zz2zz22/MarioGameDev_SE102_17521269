@@ -29,7 +29,7 @@ PlayerState* IdleState::HandleStates() {
 		if (_player->_isCrouching) {
 			return new CrouchState(_player);
 		}
-		else if (Device::IsKeyDown(DIK_S) && _form == _Form::FIRE) {
+		else if (Device::IsKeyDown(DIK_J) && _form == _Form::FIRE) {
 			return new ThrowState(_player);
 		}
 		else if (_player->IsAttacking() && _form == _Form::RACCOON) {
@@ -93,7 +93,7 @@ void IdleState::Render() {
 		if (_player->IsInPipe()) {
 			_player->_animatedSprite.PlaySpriteAnimation("RacFront", _player->_position);
 		}
-		else if (_player->_heldEntity == nullptr && !_player->IsFlying() && Device::IsKeyDown(DIK_SPACE)) {
+		else if (_player->_heldEntity == nullptr && !_player->IsFlying() && Device::IsKeyDown(DIK_K)) {
 			_player->_animatedSprite.PlaySpriteAnimation("RacWagFall", {
 				_player->_position.x - RAC_OFFSET * _player->_normal.x,
 				_player->_position.y
@@ -103,7 +103,7 @@ void IdleState::Render() {
 			);
 		}
 		else if (_player->_heldEntity == nullptr && _player->IsFlying()) {
-			if (Device::IsKeyDown(DIK_SPACE)) {
+			if (Device::IsKeyDown(DIK_K)) {
 				_player->_animatedSprite.PlaySpriteAnimation("RacWagSuperFall", {
 					_player->_position.x - RAC_OFFSET * _player->_normal.x,
 					_player->_position.y
