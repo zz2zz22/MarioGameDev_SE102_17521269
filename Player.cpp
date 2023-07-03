@@ -475,6 +475,12 @@ void Player::HandleCollisionResult(
 			_isOnGround = true;
 		}
 		break;
+	case GameObjectType::GAMEOBJECT_TYPE_SHINYBRICK:
+		//Is coin
+		if (eventEntity->GetHealth() != 3) {
+			_isOnGround = true;
+		}
+		break;
 	}
 
 	switch (eventEntity->GetObjectType()) {
