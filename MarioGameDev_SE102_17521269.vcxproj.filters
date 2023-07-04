@@ -168,6 +168,15 @@
     <ClInclude Include="Cactus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HammerBro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameUtils.cpp">
@@ -318,6 +327,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Cactus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HammerBro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -359,8 +359,7 @@ void ScenePlay::Update(DWORD deltaTime) {
 
 		if (IsTransitioningToScene() && GetTickCount64() - _toSceneStart > _toSceneTime) {
 			_toSceneStart = 0;
-			ScenePlay::Release();
-			ScenePlay::LoadScene();
+			SceneManager::GetInstance()->ChangeScene(static_cast<unsigned int>(SceneType::SCENE_TYPE_MAP));
 		}
 	}
 }

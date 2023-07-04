@@ -151,6 +151,8 @@
     <ClInclude Include="GameUtils.h" />
     <ClInclude Include="Goomba.h" />
     <ClInclude Include="Grid.h" />
+    <ClInclude Include="HammerBro.h" />
+    <ClInclude Include="HelpText.h" />
     <ClInclude Include="Hitbox.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="IdleState.h" />
@@ -172,6 +174,7 @@
     <ClInclude Include="RunState.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SceneMap.h" />
     <ClInclude Include="ScenePlay.h" />
     <ClInclude Include="ScorePopUp.h" />
     <ClInclude Include="ShinyBrick.h" />
@@ -202,6 +205,8 @@
     <ClCompile Include="GameUtils.cpp" />
     <ClCompile Include="Goomba.cpp" />
     <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="HammerBro.cpp" />
+    <ClCompile Include="HelpText.cpp" />
     <ClCompile Include="Hitbox.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="IdleState.cpp" />
@@ -224,6 +229,7 @@
     <ClCompile Include="RunState.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SceneMap.cpp" />
     <ClCompile Include="ScenePlay.cpp" />
     <ClCompile Include="ScorePopUp.cpp" />
     <ClCompile Include="ShinyBrick.cpp" />

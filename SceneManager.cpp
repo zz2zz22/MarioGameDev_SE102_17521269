@@ -1,5 +1,6 @@
 #include "GameUtils.h"
 #include "SceneManager.h"
+#include "SceneMap.h"
 #include "ScenePlay.h"
 
 SceneManager* SceneManager::_managerInstance = nullptr;
@@ -13,6 +14,8 @@ Scene* SceneManager::_CreateScene(unsigned int sceneID, std::string scenePath) {
 	switch (sceneType) {
 	case Scene::SceneType::SCENE_TYPE_STAGE_ONE:
 		return new ScenePlay(sceneType, scenePath);
+	case Scene::SceneType::SCENE_TYPE_MAP:
+		return new SceneMap(sceneType, scenePath);
 	default:
 		return new ScenePlay(sceneType, scenePath);
 	}
