@@ -136,6 +136,7 @@
     <ClInclude Include="Background.h" />
     <ClInclude Include="BonusItem.h" />
     <ClInclude Include="BrickDebris.h" />
+    <ClInclude Include="Cactus.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Coin.h" />
     <ClInclude Include="CrouchState.h" />
@@ -187,6 +188,7 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BonusItem.cpp" />
     <ClCompile Include="BrickDebris.cpp" />
+    <ClCompile Include="Cactus.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Coin.cpp" />
     <ClCompile Include="CrouchState.cpp" />

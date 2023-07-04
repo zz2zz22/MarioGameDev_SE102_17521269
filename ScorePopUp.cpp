@@ -41,6 +41,23 @@ void ScorePopUp::GetEntity(Entity* entity) {
 		_player->_score += _score;
 		_player->_coins += 1;
 		break;
+	case GameObjectType::GAMEOBJECT_TYPE_SHINYBRICK:
+		if (entity->GetExtraData().size() == 3) {
+			//Is coin
+			if (entity->GetHealth() == -2) {
+				_player->_coins += 1;
+			}
+			//Is empty;
+			else {
+				_score = _scores.front();
+			}
+		}
+		//Is not empty
+		else if (entity->GetExtraData().size() != 3) {
+			_score = _scores.at(1);
+		}
+		_player->_score += _score;
+		break;
 		//100+ each time the player hits an npc and is in the air
 		//Caps at 10000 == 1-UP
 	case GameObjectType::GAMEOBJECT_TYPE_GOOMBA:

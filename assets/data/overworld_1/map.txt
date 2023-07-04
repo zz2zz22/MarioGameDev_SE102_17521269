@@ -1,0 +1,31 @@
+[SCENESIZE]
+224	152
+[/]
+
+[BGCOLOR]
+0	0	0
+[/]
+
+[TEXTURES]
+0	assets\textures\map.png
+1	assets\textures\player.png
+2	assets\textures\hud.png
+[/]
+
+[ENTITYDATA]
+[/]
+
+[TILEDATA]
+[/]
+
+[HUD]
+assets\data\hud\hud.txt	2
+[/]
+
+[BACKGROUND]
+#texID
+0
+#Left	top	right	bottom	X	Y
+#Map
+10	10	244	172	120	81
+[/]
