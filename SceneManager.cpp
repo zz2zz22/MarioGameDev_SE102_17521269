@@ -12,8 +12,6 @@ SceneManager::~SceneManager() {}
 Scene* SceneManager::_CreateScene(unsigned int sceneID, std::string scenePath) {
 	Scene::SceneType sceneType = static_cast<Scene::SceneType>(sceneID);
 	switch (sceneType) {
-	case Scene::SceneType::SCENE_TYPE_STAGE_ONE:
-		return new ScenePlay(sceneType, scenePath);
 	case Scene::SceneType::SCENE_TYPE_MAP:
 		return new SceneMap(sceneType, scenePath);
 	default:

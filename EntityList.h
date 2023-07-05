@@ -23,4 +23,8 @@
 #include "PBlock.h"
 #include "MaskTile.h"
 
+#include "Cactus.h"
+#include "HelpText.h"
+#include "HammerBro.h"
+
 #include "BrickDebris.h"
