@@ -282,6 +282,15 @@ void Scene::_ParseEntityData(std::string line) {
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_PBLOCK:
 		entity = new PBlock;
 		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_CACTUS:
+		entity = new Cactus;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_HELPTEXT:
+		entity = new HelpText;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_HAMMERBRO:
+		entity = new HammerBro;
+		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_MASKTILE:
 		entity = new MaskTile;
 		break;
