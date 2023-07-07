@@ -1,9 +1,9 @@
 [SETTINGS]
-default	10
+default	0
 [/]
 
 [SCENES]
 #World 1
-10	assets\data\overworld_1\map.txt
-11	assets\data\overworld_1\stage_one.txt
+0	assets\data\overworld_1\map.txt
+#11	assets\data\overworld_1\stage_one.txt
 [/]

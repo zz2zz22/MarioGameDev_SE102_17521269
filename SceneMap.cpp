@@ -31,12 +31,13 @@ void SceneMap::OnKeyDown(int keyCode) {
 	case DIK_DOWNARROW:
 	case DIK_RIGHTARROW:
 		break;
-	case DIK_A:
+	case DIK_K:
 		if (_player->GetNextSceneID() != 0) {
 			if (!IsTransitioningToScene()) {
 				StartToSceneTimer();
 			}
 		}
+		
 		break;
 	}
 
@@ -80,10 +81,12 @@ void SceneMap::Update(DWORD deltaTime) {
 	if (IsTransitioningToScene()) {
 		_player->SetVelocity({ 0.0f, 0.0f });
 
-		if (GetTickCount64() - _toSceneStart > _toSceneTime) {
+		//if (GetTickCount64() - _toSceneStart > _toSceneTime) {
 			_toSceneStart = 0;
-			SceneManager::GetInstance()->ChangeScene(_player->GetNextSceneID());
-		}
+			//SceneManager::GetInstance()->ChangeScene(_player->GetNextSceneID());
+			SceneMap::Release();
+			SceneMap::LoadScene();
+		//}
 	}
 }
 

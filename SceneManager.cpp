@@ -15,7 +15,7 @@ Scene* SceneManager::_CreateScene(unsigned int sceneID, std::string scenePath) {
 	case Scene::SceneType::SCENE_TYPE_MAP:
 		return new SceneMap(sceneType, scenePath);
 	default:
-		return new ScenePlay(sceneType, scenePath);
+		return new SceneMap(sceneType, scenePath);
 	}
 }
 
