@@ -1,0 +1,29 @@
+[SCENESIZE]
+256	224
+[/]
+
+[BGCOLOR]
+0	0	0
+[/]
+
+[TEXTURES]
+0	assets\textures\titlescreen.png
+1	assets\textures\player.png
+2	assets\textures\enemies.png
+3	assets\textures\items.png
+[/]
+
+#GG
+[ENTITYDATA]
+[/]
+
+[TILEDATA]
+777	-100	155	400	37
+777	270	125	16	32
+[/]
+
+[BACKGROUND]
+0
+#Floor
+0	0	256	224	120	74
+[/]
