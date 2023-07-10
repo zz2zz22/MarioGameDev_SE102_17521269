@@ -183,6 +183,9 @@
     <ClInclude Include="GameIcon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameLogo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameUtils.cpp">
@@ -348,6 +351,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameIcon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

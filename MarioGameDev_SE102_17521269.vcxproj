@@ -148,6 +148,7 @@
     <ClInclude Include="Flower.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameIcon.h" />
+    <ClInclude Include="GameLogo.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameUtils.h" />
     <ClInclude Include="Goomba.h" />
@@ -204,6 +205,7 @@
     <ClCompile Include="Flower.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameIcon.cpp" />
+    <ClCompile Include="GameLogo.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameUtils.cpp" />
     <ClCompile Include="Goomba.cpp" />
