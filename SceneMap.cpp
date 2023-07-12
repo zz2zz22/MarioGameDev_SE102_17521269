@@ -81,12 +81,12 @@ void SceneMap::Update(DWORD deltaTime) {
 	if (IsTransitioningToScene()) {
 		_player->SetVelocity({ 0.0f, 0.0f });
 
-		//if (GetTickCount64() - _toSceneStart > _toSceneTime) {
+		if (GetTickCount64() - _toSceneStart > _toSceneTime) {
 			_toSceneStart = 0;
-			//SceneManager::GetInstance()->ChangeScene(_player->GetNextSceneID());
-			SceneMap::Release();
-			SceneMap::LoadScene();
-		//}
+			SceneManager::GetInstance()->ChangeScene(_player->GetNextSceneID());
+			/*SceneMap::Release();
+			SceneMap::LoadScene();*/
+		}
 	}
 }
 

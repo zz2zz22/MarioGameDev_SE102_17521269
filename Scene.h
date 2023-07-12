@@ -72,6 +72,8 @@ protected:
 
 	Player* _player;
 
+	SelectText* _selectText;
+
 	Grid* _grid;
 
 	bool _IsEntityInViewport(Entity*, RECTF) const;

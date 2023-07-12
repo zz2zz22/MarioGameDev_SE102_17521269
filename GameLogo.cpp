@@ -47,7 +47,16 @@ void GameLogo::Update(
 	std::vector<Entity*>* collidableTiles,
 	Grid* grid)
 {
-	
+	if (IsFallingDown()) {
+		_velocity.y = 0.2f;
+	}
+
+	if (IsFallingDown() && GetTickCount64() - _fallDownStart > _fallDownTime) {
+		_fallDownStart = 0;
+		_velocity.y = 0.0f;
+		_position.y = 60.0f;
+	}
+
 	Entity::Update(deltaTime);
 }
 

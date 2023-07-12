@@ -176,6 +176,7 @@
     <ClInclude Include="QuestionBlock.h" />
     <ClInclude Include="RunState.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneIntro.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SceneMap.h" />
     <ClInclude Include="ScenePlay.h" />
@@ -235,6 +236,7 @@
     <ClCompile Include="QuestionBlock.cpp" />
     <ClCompile Include="RunState.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneIntro.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SceneMap.cpp" />
     <ClCompile Include="ScenePlay.cpp" />
