@@ -1,5 +1,6 @@
 #include "GameUtils.h"
 #include "SceneManager.h"
+#include "SceneIntro.h"
 #include "SceneMap.h"
 #include "ScenePlay.h"
 
@@ -12,6 +13,8 @@ SceneManager::~SceneManager() {}
 Scene* SceneManager::_CreateScene(unsigned int sceneID, std::string scenePath) {
 	Scene::SceneType sceneType = static_cast<Scene::SceneType>(sceneID);
 	switch (sceneType) {
+	case Scene::SceneType::SCENE_TYPE_INTRO:
+		return new SceneIntro(sceneType, scenePath);
 	case Scene::SceneType::SCENE_TYPE_MAP:
 		return new SceneMap(sceneType, scenePath);
 	default:
@@ -43,7 +46,9 @@ void SceneManager::ParseScenes(std::string line) {
 }
 
 void SceneManager::ChangeScene(unsigned int sceneID) {
-		_scenes[_currentSceneID]->LoadScene();
+	_scenes[_currentSceneID]->Release();
+	_currentSceneID = sceneID;
+	_scenes[_currentSceneID]->LoadScene();
 }
 
 void SceneManager::Release() {

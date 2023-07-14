@@ -1,0 +1,41 @@
+[SCENESIZE]
+256	224
+[/]
+
+[BGCOLOR]
+0	0	0
+[/]
+
+[TEXTURES]
+0	assets\textures\titlescreen.png
+1	assets\textures\player.png
+2	assets\textures\enemies.png
+3	assets\textures\items.png
+[/]
+
+#GG
+[ENTITYDATA]
+#Logo
+500	assets\data\intro\logo.txt	0	115	-60
+
+#Icon
+501	assets\data\intro\icon.txt	0	128	98
+
+#Select text
+502	assets\data\intro\selecttext.txt	0	121	128
+
+#Prop plant
+504	assets\data\intro\propplant_left.txt	0	20	100
+504	assets\data\intro\propplant_right.txt	0	220	100
+[/]
+
+[TILEDATA]
+777	-100	155	400	37
+777	270	125	16	32
+[/]
+
+[BACKGROUND]
+0
+#Floor
+0	0	256	224	120	74
+[/]

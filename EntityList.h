@@ -27,4 +27,9 @@
 #include "HelpText.h"
 #include "HammerBro.h"
 
+#include "GameLogo.h"
+#include "GameIcon.h"
+#include "SelectText.h"
+#include "PropPlant.h"
+
 #include "BrickDebris.h"

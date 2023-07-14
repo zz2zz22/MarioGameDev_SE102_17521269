@@ -291,6 +291,23 @@ void Scene::_ParseEntityData(std::string line) {
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_HAMMERBRO:
 		entity = new HammerBro;
 		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_LOGO:
+		entity = new GameLogo;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_ICON:
+		entity = new GameIcon;
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_SELECT:
+		_selectText = new SelectText;
+		_selectText->SetOjectType(objectType);
+		_selectText->ParseData(tokens.at(1), texture, extraData);
+		_selectText->SetPosition(position);
+
+		_entities.emplace_back(_selectText);
+		break;
+	case GameObject::GameObjectType::GAMEOBJECT_TYPE_PROPPLANT:
+		entity = new PropPlant;
+		break;
 	case GameObject::GameObjectType::GAMEOBJECT_TYPE_MASKTILE:
 		entity = new MaskTile;
 		break;
