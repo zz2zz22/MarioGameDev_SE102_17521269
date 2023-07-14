@@ -20,7 +20,7 @@
 #Portal
 198	assets\data\npc\portal.txt	0	64	12	11
 198	assets\data\npc\portal.txt	0	160	44	0
-198	assets\data\npc\portal.txt	0	96	76	18
+198	assets\data\npc\portal.txt	0	96	76	11
 #Start
 198	assets\data\npc\portal.txt	0	32	44	0
 
