@@ -38,6 +38,9 @@ Only do this if the project isn't running.
 |           |<kbd>D</kbd>  |Move right              |
 |           |<kbd>J</kbd>   |Throw/Attack/Hold shell |
 |           |<kbd>K</kbd>   |Run/Fly/Jump/Float down |
+|Map only   |<kbd>K</kbd>   |Enter stage             |
+|Intro only |<kbd>U</kbd>   |Switch mode             |
+|           |<kbd>I</kbd>   |Choose mode & start map |
 |Debug only |<kbd>1</kbd>   |Set form to `SMALL`     |
 |           |<kbd>2</kbd>   |Set form to `BIG`       |
 |           |<kbd>3</kbd>   |Set form to `FIRE`      |
