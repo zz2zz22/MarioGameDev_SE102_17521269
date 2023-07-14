@@ -18,29 +18,40 @@
 
 #Map
 #Portal
+#1
 198	assets\data\npc\portal.txt	0	64	12	11
-198	assets\data\npc\portal.txt	0	160	44	0
-198	assets\data\npc\portal.txt	0	96	76	18
+#4
+198	assets\data\npc\portal.txt	0	160	44	11
+#Castle
+198	assets\data\npc\portal.txt	0	96	76	11
 #Start
 198	assets\data\npc\portal.txt	0	32	44	0
 
 198	assets\data\npc\portal.txt	0	64	44	0
 198	assets\data\npc\portal.txt	0	96	12	0
-198	assets\data\npc\portal.txt	0	128	12	0
-198	assets\data\npc\portal.txt	0	160	12	0
+#2
+198	assets\data\npc\portal.txt	0	128	12	11
+#3
+198	assets\data\npc\portal.txt	0	160	12	11
 198	assets\data\npc\portal.txt	0	192	12	0
-198	assets\data\npc\portal.txt	0	192	44	0
+#shroom
+198	assets\data\npc\portal.txt	0	192	44	11
 198	assets\data\npc\portal.txt	0	128	44	0
-198	assets\data\npc\portal.txt	0	128	76	0
+#heart
+198	assets\data\npc\portal.txt	0	128	76	11
 198	assets\data\npc\portal.txt	0	64	76	0
 198	assets\data\npc\portal.txt	0	64	108	0
-198	assets\data\npc\portal.txt	0	64	140	0
+#5
+198	assets\data\npc\portal.txt	0	64	140	11
 198	assets\data\npc\portal.txt	0	96	140	0
-198	assets\data\npc\portal.txt	0	128	140	0
+#6
+198	assets\data\npc\portal.txt	0	128	140	11
 198	assets\data\npc\portal.txt	0	128	108	0
-198	assets\data\npc\portal.txt	0	96	108	0
+#shroom
+198	assets\data\npc\portal.txt	0	96	108	11
 198	assets\data\npc\portal.txt	0	160	108	0
-198	assets\data\npc\portal.txt	0	192	108	0
+#big castle
+198	assets\data\npc\portal.txt	0	192	108	11
 
 #Cactus
 #Pattern
